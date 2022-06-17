@@ -1,0 +1,55 @@
+<div class="container mt-5 w-50 busentryBox">
+    <h1 class="header">BUS SCHEDULE</h1>
+    <form (ngSubmit)="onsubmit()" >
+        <div class="mb-1">
+          <select class="form-select" [(ngModel)]="bschedule" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option *ngFor="let i of allbusdetail" [value]="i">{{i.busName}}</option>
+            
+          </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">FROM</label>
+            <input type="text" name="from"  [(ngModel)]="bschedule.from"  class="form-control" id="exampleFormControlInput1" placeholder="From">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">TO</label>
+            <input type="text" name="to" [(ngModel)]="bschedule.to" class="form-control" id="exampleFormControlInput1" placeholder="To">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">DISTANCE</label>
+            <input type="text" name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" placeholder="Distance">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">DEPARTURE AREA</label>
+            <input type="text" name="departureArea" [(ngModel)]="bschedule.departureArea" class="form-control" id="exampleFormControlInput1" placeholder="Departure Area">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">NO OF SEATS</label>
+            <input type="text" name="noOfSeats" [(ngModel)]="bschedule.noOfSeats" class="form-control" id="exampleFormControlInput1" placeholder="No of Seats">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">BOOKED SEATS</label>
+            <input type="text" name="bookedSeats" [(ngModel)]="bschedule.bookedSeats" class="form-control" id="exampleFormControlInput1" placeholder="Booked Seats">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">DATE</label>
+          <input type = "date" [(ngModel)]="bschedule.date"  class="form-control" name = "startingtime"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">STARTING TIME</label>
+          <input type = "time" [(ngModel)]="bschedule.startingTime"  class="form-control" name = "startingtime"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ENDING TIME</label>
+          <input type = "time"  [(ngModel)]="bschedule.reachTime" class="form-control" name = "reachedtime"> 
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">FAIR PER SEATS</label>
+            <input type="text" name="fairPerSeat" [(ngModel)]="bschedule.fairPerSeat" class="form-control" id="exampleFormControlInput1" placeholder="Fair">
+          </div>
+          <button type="submit" class=" btn btn-primary">Submit</button>
+    </form>
+    
+</div>
+
