@@ -59,11 +59,6 @@ public class BusScheduleController {
 		return "deleted successfully";
 	   }
 	
-	@GetMapping("/{from}/{to}/date={date}")
-	public BusSchedule fetchBus(@PathVariable("from") String from, @PathVariable("to") String to, @PathVariable("date") String date) {
-		
-		
-		return busscheduleservice.fetchBusByDestination(from, to,date);
-	}	    
+		    
 	}
 

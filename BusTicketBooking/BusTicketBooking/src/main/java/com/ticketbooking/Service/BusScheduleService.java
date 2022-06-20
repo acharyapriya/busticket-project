@@ -6,16 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ticketbooking.Entity.BusSchedule;
+import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Repository.BusScheduleRepo;
+import com.ticketbooking.Repository.Bus_Detailrepository;
 
 @Service
 public class BusScheduleService {
    @Autowired
    private BusScheduleRepo busschedulerepo;
+
+   @Autowired
+  private Bus_Detailrepository bus_detailrepository;
    
    public BusSchedule scheduledetails(BusSchedule busschedule )
    {
-	   
+	   Bus_Detail bus_detail=bus_detailrepository.findById(busschedule.getBusId()).get();
+	   busschedule.setBusName(bus_detail.getBusName());
+	   busschedule.setNoOfSeats(bus_detail.getNoOfSeats());
 	   return busschedulerepo.save(busschedule);
 	    
    }
@@ -55,9 +62,6 @@ public class BusScheduleService {
 	    busschedulerepo.deleteById(busId);
    }
    
-   public BusSchedule fetchBusByDestination(String from, String to,String date) {
-	   
-	   return busschedulerepo.fetchBus(from, to,date);
-   }
+ 
    
 }

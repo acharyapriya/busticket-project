@@ -22,7 +22,7 @@ public class Bus_Detail {
   private String BusName;
   private String busNo;
   private String  busModel;
-  private String noOfSeats;
+  private int noOfSeats;
   private String mode;
   private String coverage;
  }

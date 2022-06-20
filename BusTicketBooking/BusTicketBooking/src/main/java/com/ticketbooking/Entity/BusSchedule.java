@@ -25,9 +25,8 @@ public class BusSchedule {
 	private String departureArea;
 	private int noOfSeats;
 	private int bookedSeats;
-	private String date;
-	private String startingTime;
-	private String reachTime;
+	private Date startingTime;
+	private Date reachTime;
 	private int fairPerSeat;
 	
 	
