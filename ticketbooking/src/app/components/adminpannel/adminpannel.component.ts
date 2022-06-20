@@ -19,13 +19,17 @@ export class AdminpannelComponent implements OnInit {
     this.getallbusdetail()
    
   }
-  
+  selectedTeam:String ="";
+  values!:String;
   getallbusdetail(){
     this.ownerservice.getbusdetail().subscribe((data)=>{
       this.allbusdetail=data    
     })
   }
-  
+  // selectedTeam = '';
+	onSelected(value:string): void {
+		this.selectedTeam = value;
+	}
   onsubmit()
   {
     console.log("value",this.bschedule);
@@ -34,6 +38,7 @@ export class AdminpannelComponent implements OnInit {
         alert(" submited sucessfully")
       }
     )
+  
   }
 
   

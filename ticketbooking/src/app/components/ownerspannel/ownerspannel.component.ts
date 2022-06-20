@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Busdetail } from 'src/app/classes/busdetail';
 import { OwnersserviceService } from 'src/app/services/ownersservice.service';
 
@@ -9,15 +10,20 @@ import { OwnersserviceService } from 'src/app/services/ownersservice.service';
 })
 export class OwnerspannelComponent implements OnInit {
 
-  constructor(private ownerService:OwnersserviceService) { }
+  constructor(private ownerService:OwnersserviceService,private _router:Router) { }
   busdetail = new Busdetail()
   ngOnInit(): void {
   }
 
   onsubmit(){
     console.log(this.busdetail)
-    this.ownerService.PostBusDetail(this.busdetail).subscribe(
-
+    this.ownerService.PostBusDetail(this.busdetail).subscribe((data)=>{
+      this._router.navigate(["/ownerpanel"]).then(()=>{
+        window.location.reload()
+      }    )
+      console.log(data)
+    }
+     
     )
   }
   
