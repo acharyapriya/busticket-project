@@ -62,6 +62,11 @@ public class BusScheduleService {
 	    busschedulerepo.deleteById(busId);
    }
    
- 
+   public List <BusSchedule> getschedulebus(String from,String to,String date)
+   {
+	   return busschedulerepo.fetchBus(from, to, date);
+   }
+   
+
    
 }

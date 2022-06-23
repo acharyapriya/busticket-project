@@ -18,5 +18,9 @@ export class AdminserviceService {
   {
     return this.http.post<any>(`${this.baseurl}/busschedule`,Busschedule)
   }
-  
+
+  getbusschedule(from:string,to:string,date:String):Observable<any>
+  {
+    return this.http.get<any>(`${this.baseurl}/from=${from}/to=${to}/${date}`)
+  }
 }

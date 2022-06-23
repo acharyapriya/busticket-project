@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,7 +12,12 @@ import { AdminpannelComponent } from './components/adminpannel/adminpannel.compo
 import {HttpClientModule} from "@angular/common/http";
 import { BusdetailComponent } from './components/busdetail/busdetail.component';
 import { SchedulebusdetailComponent } from './components/schedulebusdetail/schedulebusdetail.component';
-import { NavabarComponent } from './components/navabar/navabar.component'
+import { NavabarComponent } from './components/navabar/navabar.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { BuscardlistComponent } from './components/buscardlist/buscardlist.component';
+import { ButttonComponent } from './components/buttton/buttton.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { NavabarComponent } from './components/navabar/navabar.component'
     AdminpannelComponent,
     BusdetailComponent,
     SchedulebusdetailComponent,
-    NavabarComponent
+    NavabarComponent,
+    RegisterComponent,
+    LoginComponent,
+    BuscardlistComponent,
+    ButttonComponent,
+
   ],
   imports: [
    
@@ -31,6 +41,7 @@ import { NavabarComponent } from './components/navabar/navabar.component'
     FormsModule,HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

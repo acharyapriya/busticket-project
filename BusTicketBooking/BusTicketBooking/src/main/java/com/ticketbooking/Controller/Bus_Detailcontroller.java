@@ -22,10 +22,10 @@ public class Bus_Detailcontroller {
 	
 	
      @PostMapping("/entry/busdetail")
-     public String busdetail(@RequestBody Bus_Detail bus_detail)
+     public Bus_Detail busdetail(@RequestBody Bus_Detail bus_detail)
      {
-    	 bus_detailservice.busdetail(bus_detail);
-    	 return "save successfull";
+    	
+    	 return  bus_detailservice.busdetail(bus_detail);
      }
 //	@CrossOrigin("http://localhost:4200")
      @GetMapping("/getall/getbusdetail")

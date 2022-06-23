@@ -1,0 +1,20 @@
+.card-block {
+    min-height: 220px;
+ }
+ .container-fluid
+ {
+    overflow-x: scroll;
+   overflow-y: hidden;
+   
+  
+ 
+ }
+ .buttonprofile
+ {
+    width:700px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:140px;
+   
+ }
+ 

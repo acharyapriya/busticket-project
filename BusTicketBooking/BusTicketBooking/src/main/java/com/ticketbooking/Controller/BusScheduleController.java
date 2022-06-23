@@ -3,6 +3,7 @@ package com.ticketbooking.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Service.BusScheduleService;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 public class BusScheduleController {
   
 	@Autowired
@@ -58,7 +60,11 @@ public class BusScheduleController {
 		busscheduleservice.deleteschedule(busId);
 		return "deleted successfully";
 	   }
+	@GetMapping("/from={from}/to={to}/{date}")
+	    public List<BusSchedule> fetchallbusdetail (@PathVariable("from")String from,@PathVariable("to")String to,@PathVariable("date")String date)
+	    {
+		return busscheduleservice.getschedulebus(from, to, date);
+	    }
 	
-		    
 	}
 
