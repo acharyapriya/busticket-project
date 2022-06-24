@@ -2,7 +2,10 @@
   <div class="outbutton">
     <!-- <button routerLink="/register" class="regbutton">Register</button>
     <button routerink="/login" class="signbutton">Signup</button> -->
-  
+  <app-buttton [name]="register"></app-buttton>
+  <app-buttton [name]="signup"></app-buttton>
+  <app-buttton [name]="click"></app-buttton>
+  <app-buttton [name]="pin"></app-buttton>
   </div>
   <div class="journeysection">
     <form (ngSubmit)="getbusschedule()">
@@ -18,7 +21,7 @@
           <label for="floatingPassword">To</label>
         </div>
         <button type="submit" class="signbutton">Submit</button>
-        <app-button></app-button>
+       
       </div>
     </div>
     </form>

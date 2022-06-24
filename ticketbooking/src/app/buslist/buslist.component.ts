@@ -14,6 +14,10 @@ export class BuslistComponent implements OnInit {
   schedulelist:any=[];
   ngOnInit(): void {
   }
+  register="Register"
+  signup="Signup"
+  click="Click"
+  pin="pin"
   from!:string 
   to!:string 
   date!:string 

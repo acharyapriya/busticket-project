@@ -1,66 +1,51 @@
 <div class="buttonprofile">
-    <div class="btn1">
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-    </div>
-    <div class="btn2">
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-     </div>
-     <div class="btn3">
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
-     </div>
+  <div class="btn1">
+    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+  </div>
+  <div class="btn2">
+    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+  </div>
+  <div class="btn3">
+    <button type="button" class="btn btn-primary btn-sm">Small button</button>
+  </div>
 </div>
-<div class="container-fluid">
-    
-    <div class="row flex-row flex-nowrap">
-        <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">bus name</li>
-              <li class="list-group-item">Starttime/reach time</li>
-              <li class="list-group-item">booked seat</li>
-              <li class="list-group-item">fair per seat</li>
-              <li class="list-group-item">total no of seta</li>
-             
-            </ul>
-          </div>
-        </div>
-        <!-- <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card card-block">Card</div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card card-block">Card</div>
-      </div> -->
+<div class="container-fluid bus-card-container ">
+    <div  class="floating-btn" >
+        <button class="btn" (click)="scrollLeft()"><i class="fa-solid fa-chevron-left"></i></button>
     </div>
+
+    <div #widgetsContent class="middle">
+        <div class="info-widget">
+            <div class="card bus-card rounded border-2" style="width: 20rem;">
+                <div class="card-body">
+                  <h5 class="card-title text-center">BusName</h5>
+                  <h6 class="card-subtitle mb-1 text-center text-muted">Type(sleeper)</h6>
+                  <div class="card-body-sec">
+                    <div>
+                        <p>chennai</p>
+                        <p class="timings mx-1">(starting)</p>
+                        <p>
+                            <i class="fa-solid fa-arrow-right-long mx-2"></i>
+                        </p> 
+                        <p>Pondicherry</p> 
+                        <p class="timings mx-1">(reach)</p>  
+                    </div>
+                    <div class="seat-count">
+                        <p class="avail-seat">Available Seats</p> 
+                        <p class="mx-2 slash">/</p>
+                        <p class="text-muted ">Total no of seats</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary booking-btn">Book-Fair</button>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="floating-btn">
+        <button class="btn right-left-btn" (click)="scrollRight()"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <p #para ></p>
+    </div>
+
 
