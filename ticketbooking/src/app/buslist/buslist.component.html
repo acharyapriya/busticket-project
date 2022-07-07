@@ -1,31 +1,42 @@
 <div class="home-background">
-  <div class="outbutton">
+  <!-- <div class="outbutton"> -->
     <!-- <button routerLink="/register" class="regbutton">Register</button>
     <button routerink="/login" class="signbutton">Signup</button> -->
-  <app-buttton [name]="register"></app-buttton>
-  <app-buttton [name]="signup"></app-buttton>
-  <app-buttton [name]="click"></app-buttton>
-  <app-buttton [name]="pin"></app-buttton>
-  </div>
+  <!-- Injection Method
+  <app-buttton [color]="primary" (newEvent)="onclickregister()" [name]="register"></app-buttton>
+  <app-buttton [color]="secondary"  (newEvent)="onclicksignup()" [name]="signup"></app-buttton>
+  <app-buttton [color]="success"  (newEvent)="onclick()"  [name]="click"></app-buttton>
+  <app-buttton [color]="danger"  (newEvent)="onclickpin()"  [name]="pin"></app-buttton> -->
+  <!-- </div> -->
   <div class="journeysection">
     <form (ngSubmit)="getbusschedule()">
-    <div class="journeybox">
+    <div class="journeybox shadow p-3 mb-5 bg-body rounded">
       <div class="journeyinp">
-        <input type="date" name = "date" [(ngModel)]="date">
         <div class="form-floating mb-2 ">
-          <input type="text" name = "from" [(ngModel)]="from" class="form-control" id="floatingInput" placeholder="From">
-          <label for="floatingInput">From</label>
+        <input type="date" class="form-control"  id="floatingInput" min="{{today | date:'yyyy-MM-dd'}}" name = "date" [(ngModel)]="date">
+        </div>
+        <div class="form-floating mb-2 ">
+          <input type="text" name = "from" [(ngModel)]="from" class="form-control" id="floatingInput" placeholder="Where">
+          <label for="floatingPassword">Where To Pick</label>
         </div>
         <div class="form-floating">
-          <input type="text" name = "to" [(ngModel)]="to" class="form-control" id="floatingto" placeholder="To">
-          <label for="floatingPassword">To</label>
+          <input type="text" name = "to" [(ngModel)]="to" class="form-control" id="floatingto" placeholder="Ending happy destination">
+          <label for="floatingPassword">Where to drop</label>
         </div>
-        <button type="submit" class="signbutton">Submit</button>
+       
        
       </div>
+      <div class="submitbtn">
+        <button type="submit" class="btn btn-secondary submitBtn" >Submit
+        </button>
+        <img class="busimage" src="../../assets/Images/bus2.svg">
+      </div>
+      
     </div>
     </form>
-    <app-buscardlist [class.d-none]=" showmusiccard"[schedulelist]="schedulelist"></app-buscardlist>
+    <app-buscardlist [class.d-none]="showmusiccard" [schedulelist]="schedulelist"></app-buscardlist>
     <!-- {{schedulelist|json}} -->
   </div>
+  </div>
+  
   

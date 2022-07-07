@@ -1,6 +1,8 @@
 package com.ticketbooking.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Repository.BusScheduleRepo;
 import com.ticketbooking.Repository.Bus_Detailrepository;
+import com.ticketbooking.model.BusCardModel;
 
 @Service
 public class BusScheduleService {
@@ -20,10 +23,20 @@ public class BusScheduleService {
    
    public BusSchedule scheduledetails(BusSchedule busschedule )
    {
+	   BusSchedule NewScheduledBus = new BusSchedule();
 	   Bus_Detail bus_detail=bus_detailrepository.findById(busschedule.getBusId()).get();
-	   busschedule.setBusName(bus_detail.getBusName());
-	   busschedule.setNoOfSeats(bus_detail.getNoOfSeats());
-	   return busschedulerepo.save(busschedule);
+	   NewScheduledBus.setScheduleID(UUID.randomUUID().toString());
+	   NewScheduledBus.setBusId(busschedule.getBusId());
+	   NewScheduledBus.setBusName(bus_detail.getBusName());
+	   NewScheduledBus.setNoOfSeats(bus_detail.getNoOfSeats());
+	   NewScheduledBus.setDepartureArea(busschedule.getDepartureArea());
+	   NewScheduledBus.setDistance(busschedule.getDistance());
+	   NewScheduledBus.setFrom(busschedule.getFrom());
+	   NewScheduledBus.setTo(busschedule.getTo());
+	   NewScheduledBus.setFairPerSeat(busschedule.getFairPerSeat());
+	   NewScheduledBus.setReachTime(busschedule.getReachTime());
+	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
+	   return busschedulerepo.save(NewScheduledBus);
 	    
    }
    
@@ -39,12 +52,25 @@ public class BusScheduleService {
    }
    
    
-   public BusSchedule getscheduleid(String busId)
+   public BusCardModel getscheduleid(String busId)
+   
    {
-	   return busschedulerepo.findById(busId).get();
+	   BusCardModel cardModel = new BusCardModel();
+	   BusSchedule bsschedule= busschedulerepo.findById(busId).get();
+	   Bus_Detail bsdetail= bus_detailrepository.findById(busId).get();
+	   cardModel.setBookedSeats(bsschedule.getBookedSeats());
+	   cardModel.setBusName(bsschedule.getBusName());
+	   cardModel.setDepartureArea(bsschedule.getDepartureArea());
+	   cardModel.setDistance(bsschedule.getDistance());
+	   cardModel.setFairPerSeat(bsschedule.getFairPerSeat());
+	   cardModel.setFrom(bsschedule.getFrom());
+	   cardModel.setTo(bsschedule.getTo());
+	   cardModel.setNoOfSeats(bsschedule.getNoOfSeats());
+	   cardModel.setReachTime(bsschedule.getReachTime());
+	   cardModel.setStartingTime(bsschedule.getStartingTime());
+	   cardModel.setMode(bsdetail.getBusModel());
+	   return cardModel;
    }
-   
-   
    public BusSchedule updateschedule(BusSchedule busschedule,String busId)
    {
 	   BusSchedule scheduledetails=busschedulerepo.findById(busId).get();
@@ -62,9 +88,31 @@ public class BusScheduleService {
 	    busschedulerepo.deleteById(busId);
    }
    
-   public List <BusSchedule> getschedulebus(String from,String to,String date)
+   public List<BusCardModel> getschedulebus(String from,String to,String date)
    {
-	   return busschedulerepo.fetchBus(from, to, date);
+	   List<BusSchedule> ListOfBusScheduled = busschedulerepo.fetchBus(from, to, date);
+	   List<BusCardModel> BusCardModel = new ArrayList<>();
+	   
+	   for (BusSchedule ScheduledBus: ListOfBusScheduled) {
+		   Bus_Detail bsdetail= bus_detailrepository.findById(ScheduledBus.getBusId()).get();
+		   BusCardModel cardModel = new BusCardModel();
+		   cardModel.setBookedSeats(ScheduledBus.getBookedSeats());
+		   cardModel.setBusName(ScheduledBus.getBusName());
+		   cardModel.setDepartureArea(ScheduledBus.getDepartureArea());
+		   cardModel.setDistance(ScheduledBus.getDistance());
+		   cardModel.setFairPerSeat(ScheduledBus.getFairPerSeat());
+		   cardModel.setFrom(ScheduledBus.getFrom());
+		   cardModel.setTo(ScheduledBus.getTo());
+		   cardModel.setNoOfSeats(ScheduledBus.getNoOfSeats());
+		   cardModel.setReachTime(ScheduledBus.getReachTime());
+		   cardModel.setStartingTime(ScheduledBus.getStartingTime());
+		   cardModel.setMode(bsdetail.getBusModel());
+		   BusCardModel.add(cardModel);
+		   
+	   }
+	    
+	   return BusCardModel ;
+	   
    }
    
 

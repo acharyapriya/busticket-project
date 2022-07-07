@@ -12,7 +12,7 @@ import { Busschedule } from '../classes/busschedule';
 export class AdminserviceService {
 
   constructor(private http:HttpClient) { }
-  baseurl = "http://localhost:8082"
+  baseurl = "http://localhost:8080"
 
   postbusschedule(Busschedule:Busschedule):Observable<any>
   {

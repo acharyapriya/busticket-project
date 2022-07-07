@@ -1,4 +1,4 @@
-<div class="buttonprofile">
+<!-- <div class="buttonprofile">
   <div class="btn1">
     <button type="button" class="btn btn-primary btn-sm">Small button</button>
   </div>
@@ -8,7 +8,7 @@
   <div class="btn3">
     <button type="button" class="btn btn-primary btn-sm">Small button</button>
   </div>
-</div>
+</div> -->  
 <div class="container-fluid bus-card-container ">
     <div  class="floating-btn" >
         <button class="btn" (click)="scrollLeft()"><i class="fa-solid fa-chevron-left"></i></button>
@@ -16,36 +16,45 @@
 
     <div #widgetsContent class="middle">
         <div class="info-widget">
-            <div class="card bus-card rounded border-2" style="width: 20rem;">
+            <div *ngFor="let i of schedulelist" class="card bus-card rounded border-2" style="width: 20rem;">
                 <div class="card-body">
-                  <h5 class="card-title text-center">BusName</h5>
-                  <h6 class="card-subtitle mb-1 text-center text-muted">Type(sleeper)</h6>
+                  <div >
+                  <h5 class="card-title text-center">{{i.busName}}</h5>
+                  
+                  <h6 class="card-subtitle mb-1 text-center text-muted">{{i.mode}}</h6>
                   <div class="card-body-sec">
                     <div>
-                        <p>chennai</p>
-                        <p class="timings mx-1">(starting)</p>
+                        <p>{{i.from}}</p>
+                        <p class="timings mx-1">({{i.startingTime | date:'shortTime'}})</p>
                         <p>
                             <i class="fa-solid fa-arrow-right-long mx-2"></i>
                         </p> 
-                        <p>Pondicherry</p> 
-                        <p class="timings mx-1">(reach)</p>  
+                        <p>{{i.to}}</p> 
+                        <p class="timings mx-1">({{i.reachTime | date:'shortTime'}})</p>  
                     </div>
                     <div class="seat-count">
-                        <p class="avail-seat">Available Seats</p> 
+                      
+                    <p class="avail-seat">{{i.noOfSeats - i.bookedSeats}}(Avaliable Seats)</p> 
                         <p class="mx-2 slash">/</p>
-                        <p class="text-muted ">Total no of seats</p>
+                        <p class="text-muted ">{{i.noOfSeats}}(Total seats)</p>
                     </div>
                   </div>
-                  <button class="btn btn-secondary booking-btn">Book-Fair</button>
+                  <button class="btn btn-secondary booking-btn">Book-{{i.fairPerSeat}}</button>
+                  </div>
+                
                 </div>
               </div>
         </div>
+        
     </div>
 
     <div class="floating-btn">
         <button class="btn right-left-btn" (click)="scrollRight()"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
-    <p #para ></p>
     </div>
 
 
+
+
+
+    

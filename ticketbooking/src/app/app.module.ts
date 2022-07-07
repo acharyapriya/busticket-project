@@ -32,8 +32,7 @@ import { ButttonComponent } from './components/buttton/buttton.component';
     LoginComponent,
     BuscardlistComponent,
     ButttonComponent,
-
-  ],
+],
   imports: [
    
     BrowserModule,

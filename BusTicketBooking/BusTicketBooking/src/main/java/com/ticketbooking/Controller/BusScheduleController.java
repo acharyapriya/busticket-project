@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Service.BusScheduleService;
+import com.ticketbooking.model.BusCardModel;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -44,7 +45,7 @@ public class BusScheduleController {
 		}
 	
 	@GetMapping("/getidschedule/{id}")
-	    public BusSchedule getscheduleid(@PathVariable("id") String busId)
+	    public BusCardModel getscheduleid(@PathVariable("id") String busId)
 	    {
 		   return busscheduleservice.getscheduleid(busId);
 	    }
@@ -61,7 +62,7 @@ public class BusScheduleController {
 		return "deleted successfully";
 	   }
 	@GetMapping("/from={from}/to={to}/{date}")
-	    public List<BusSchedule> fetchallbusdetail (@PathVariable("from")String from,@PathVariable("to")String to,@PathVariable("date")String date)
+	    public List<BusCardModel> fetchallbusdetail (@PathVariable("from")String from,@PathVariable("to")String to,@PathVariable("date")String date)
 	    {
 		return busscheduleservice.getschedulebus(from, to, date);
 	    }

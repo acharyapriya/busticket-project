@@ -1,24 +1,18 @@
-package com.ticketbooking.Entity;
+package com.ticketbooking.model;
 
 import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class BusSchedule {
-	@Id
-	private String scheduleID;
-	private String busId;
+public class BusCardModel {
+	
 	private String busName;
 	private String from;
 	private String to;
@@ -29,9 +23,5 @@ public class BusSchedule {
 	private Date startingTime;
 	private Date reachTime;
 	private int fairPerSeat;
-	
-	
-	
-		
-
+	private String mode;
 }

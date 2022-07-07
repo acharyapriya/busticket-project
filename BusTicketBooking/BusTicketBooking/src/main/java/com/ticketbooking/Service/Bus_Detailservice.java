@@ -1,5 +1,6 @@
 package com.ticketbooking.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +19,8 @@ public class Bus_Detailservice {
   public Bus_Detail busdetail(Bus_Detail bus_detail)
   {
 	  bus_detail.setBusId(UUID.randomUUID().toString());
+	  String[] coverageNew = bus_detail.getCoverage().split(","); 
+	  bus_detail.setCoverage(coverageNew.toString());
 	  return bus_detailrepository.save(bus_detail);
   }
   

@@ -8,13 +8,26 @@
           
           </select>
           </div>
-          
+          <!-- <div class="mb-1">
+            <select class="form-select" [(ngModel)]="bschedule.busId" name="busname"  aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option *ngFor="let value of allbusdetail.coverage"  >{{value|json}}</option>
+            
+            </select>
+            </div> -->
+            <div *ngFor="let val of allbusdetail">
+              {{val|json}}
+                <div *ngFor="let val2 of val">
+                  {{val2}}
+                </div>
+            </div>
+        
          
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">FROM</label>
             <input type="text"  name="from"  [(ngModel)]="bschedule.from" class="form-control" id="exampleFormControlInput1" placeholder="From">
            
-          </div>
+          </div> -->
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">TO</label>
             <input type="text" name="to" [(ngModel)]="bschedule.to" class="form-control" id="exampleFormControlInput1" placeholder="To">
@@ -33,7 +46,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">ENDING TIME</label>
-          <input type = "datetime-local"  [(ngModel)]="bschedule.reachTime" class="form-control" name = "reachedtime"> 
+          <input type = "datetime-local" min=""  [(ngModel)]="bschedule.reachTime" class="form-control" name = "reachedtime"> 
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">FAIR PER SEATS</label>

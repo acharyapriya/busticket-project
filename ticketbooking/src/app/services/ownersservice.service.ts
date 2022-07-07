@@ -9,7 +9,7 @@ import { Busdetail } from '../classes/busdetail';
 export class OwnersserviceService {
 
   constructor(private http:HttpClient) { }
-  baseurl = "http://localhost:8082"
+  baseurl = "http://localhost:8080"
 
   
   PostBusDetail(BusDetail:Busdetail):Observable<any>{
@@ -17,6 +17,10 @@ export class OwnersserviceService {
   }
   getbusdetail():Observable<any>{
     return this.http.get<any>(`${this.baseurl}/getall/getbusdetail`)
+  }
+
+  getbusdetailbyId(id:string):Observable<any>{
+    return this.http.get<any>(`${this.baseurl}/busdetail/${id}`)
   }
 
   deletebusdetail(id:String):Observable<any>{
