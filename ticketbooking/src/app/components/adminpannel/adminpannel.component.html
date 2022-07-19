@@ -2,36 +2,36 @@
     <h1 class="header">BUS SCHEDULE</h1>
     <form (ngSubmit)="onsubmit()" >
         <div class="mb-1">
-          <select class="form-select" [(ngModel)]="bschedule.busId" name="busname"  aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option *ngFor="let value of allbusdetail"  [value]="value.busId">{{value.busName}}</option>
-          
-          </select>
-          </div>
-          <!-- <div class="mb-1">
-            <select class="form-select" [(ngModel)]="bschedule.busId" name="busname"  aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option *ngFor="let value of allbusdetail.coverage"  >{{value|json}}</option>
-            
-            </select>
-            </div> -->
-            <div *ngFor="let val of allbusdetail">
-              {{val|json}}
-                <div *ngFor="let val2 of val">
-                  {{val2}}
-                </div>
-            </div>
-        
-         
-          <!-- <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">FROM</label>
-            <input type="text"  name="from"  [(ngModel)]="bschedule.from" class="form-control" id="exampleFormControlInput1" placeholder="From">
+          <label for="bus">Bus name</label>
+          <select class="form-select" (ngModelChange)="onbusname($event)" [(ngModel)]="bschedule.busId" name="busname"  aria-label="Default select example">
            
-          </div> -->
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">TO</label>
-            <input type="text" name="to" [(ngModel)]="bschedule.to" class="form-control" id="exampleFormControlInput1" placeholder="To">
+            <option selected>Open this select menu</option>
+            <option *ngFor="let value of allbusdetail" [value]="value.busId">{{value.busName}}</option>
+            
+          </select>
+
           </div>
+          <div class="mb-1">
+            <label for="bus">From</label>
+            <select class="form-select" name="from" (ngModelChange)="changeOfOptions($event)"  [(ngModel)]="bschedule.from" aria-label="Default select example">
+             
+              <option selected>Open this select menu</option>
+              <option  *ngFor="let val of specificBusdetail" [value]="val">{{val}}</option>
+              
+            </select>
+  
+            </div>
+            <label for="bus">To</label>
+            <div class="mb-1">
+              <select class="form-select" name="from"  [(ngModel)]="bschedule.to" aria-label="Default select example">
+               
+                <option selected>Open this select menu</option>
+                <option  *ngFor="let val of ToOptions"  [value]="val">{{val}}</option>
+                
+              </select>
+    
+              </div>
+          
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">DISTANCE</label>
             <input type="text" name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" placeholder="Distance">

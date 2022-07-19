@@ -15,8 +15,8 @@
     </div>
 
     <div #widgetsContent class="middle">
-        <div class="info-widget">
-            <div *ngFor="let i of schedulelist" class="card bus-card rounded border-2" style="width: 20rem;">
+        <div class="info-widget" *ngFor="let i of schedulelist">
+            <div  class="card bus-card rounded border-2 mx-4" style="width: 20rem;">
                 <div class="card-body">
                   <div >
                   <h5 class="card-title text-center">{{i.busName}}</h5>
@@ -39,7 +39,7 @@
                         <p class="text-muted ">{{i.noOfSeats}}(Total seats)</p>
                     </div>
                   </div>
-                  <button class="btn btn-secondary booking-btn">Book-{{i.fairPerSeat}}</button>
+                  <button (click)="toBeBooked(i)" class="btn btn-secondary booking-btn">Book-{{i.fairPerSeat}}</button>
                   </div>
                 
                 </div>

@@ -13,6 +13,7 @@ import lombok.Setter;
 @Setter
 public class BusCardModel {
 	
+	private String scheduleID;
 	private String busName;
 	private String from;
 	private String to;

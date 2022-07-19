@@ -27,4 +27,9 @@ export class OwnersserviceService {
     console.log(`${this.baseurl}/deletedetail/${id}`)
     return this.http.delete<any>(`${this.baseurl}/deletedetail/${id}`)
   }
+
+  getcoverage():Observable<any>
+  {
+    return this.http.get<any>(`${this.baseurl}/getcoverage`)
+  }
 }

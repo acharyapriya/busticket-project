@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Service.Bus_Detailservice;
+import com.ticketbooking.model.BusModel;
 @CrossOrigin("http://localhost:4200")
 @RestController
 public class Bus_Detailcontroller {
@@ -35,7 +36,7 @@ public class Bus_Detailcontroller {
      }
      
      @GetMapping("/busdetail/{id}")
-     public Bus_Detail getbyiddetail(@PathVariable("id") String bus_id)
+     public BusModel getbyiddetail(@PathVariable("id") String bus_id)
      {
     	 return bus_detailservice.getbyiddetail(bus_id);
      }
@@ -52,6 +53,12 @@ public class Bus_Detailcontroller {
      {
     	 bus_detailservice.deletebusdetail(bus_id);
     	 return "delete success";
+     }
+     
+     @GetMapping("/getcoverage")
+     public List<String> listOfCoveragectrl()
+     {
+    	 return bus_detailservice.listOfCoverage();
      }
 }
 

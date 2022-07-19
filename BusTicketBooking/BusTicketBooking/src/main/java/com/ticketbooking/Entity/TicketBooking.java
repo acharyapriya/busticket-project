@@ -1,5 +1,6 @@
 package com.ticketbooking.Entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,10 +18,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TicketBooking {
 	@Id
+  private String bookingId;
   private String busId;
-  private String busNo;
-  private int noOFSeats;
-  private Date bookingDate;
-  private int totalFare;
+  private String scheduleID;
+  private String userName;
+  private LocalDateTime bookingDateTime;
+  private int noOfBookingSeats;
+  private String bookingStatus;
+  private int fare;
  
 }

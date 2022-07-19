@@ -40,6 +40,29 @@ export class AdminpannelComponent implements OnInit {
     )
   
   }
+  specificBusdetail:any=[]
+ ToOptions:any=[];
 
+ onbusname(data:any)
+ {
+  this.ownerservice.getbusdetailbyId(data).subscribe((data)=>{
+    this.specificBusdetail=data.coverage 
+  })
+
+ }
+
+ changeOfOptions(data:any){
+  
+  if(data){
+     this.ToOptions=[]
+    for(var i in this.specificBusdetail){
+      if(this.specificBusdetail[i] != data){
+        const revisedData = this.specificBusdetail[i]
+        this.ToOptions.push(revisedData)
+      }
+    }
+  }
+   
+ }
   
 }

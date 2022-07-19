@@ -15,13 +15,18 @@
         <div class="form-floating mb-2 ">
         <input type="date" class="form-control"  id="floatingInput" min="{{today | date:'yyyy-MM-dd'}}" name = "date" [(ngModel)]="date">
         </div>
-        <div class="form-floating mb-2 ">
-          <input type="text" name = "from" [(ngModel)]="from" class="form-control" id="floatingInput" placeholder="Where">
-          <label for="floatingPassword">Where To Pick</label>
+        <div class="form-floating mb-3 ">
+          <select class="form-select" (ngModelChange)="onfrom()" [(ngModel)]="from" name="from"  aria-label="Default select example" >
+            <option selected>Where to Pickup?</option>
+            <option  [value]="value" *ngFor="let value of buscoverage" >{{value}}</option>
+          </select>
+         
         </div>
         <div class="form-floating">
-          <input type="text" name = "to" [(ngModel)]="to" class="form-control" id="floatingto" placeholder="Ending happy destination">
-          <label for="floatingPassword">Where to drop</label>
+          <select class="form-select" (ngModelChange)="onfrom()" [(ngModel)]="to" name="to"  aria-label="Default select example" >
+            <option selected>Where to Pickup?</option>
+            <option  [value]="value" *ngFor="let value of buscoverage" >{{value}}</option>
+          </select>
         </div>
        
        
@@ -34,9 +39,12 @@
       
     </div>
     </form>
-    <app-buscardlist [class.d-none]="showmusiccard" [schedulelist]="schedulelist"></app-buscardlist>
+   
     <!-- {{schedulelist|json}} -->
   </div>
+  <app-buscardlist [class.d-none]="showmusiccard" [schedulelist]="schedulelist"></app-buscardlist>
+
   </div>
+
   
   

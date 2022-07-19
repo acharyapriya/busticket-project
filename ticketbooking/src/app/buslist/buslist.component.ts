@@ -1,21 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Busschedule } from '../classes/busschedule';
 import { AdminserviceService } from '../services/adminservice.service';
+import { OwnersserviceService } from '../services/ownersservice.service';
 @Component({
   selector: 'app-buslist',
   templateUrl: './buslist.component.html',
   styleUrls: ['./buslist.component.css']
 })
 export class BuslistComponent implements OnInit {
+ 
+  
 
-  constructor(private Adminservice:AdminserviceService) { }
+  constructor(private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService) { }
   busschedule=new Busschedule();
   schedulelist:any=[];
   today= new Date();
+  buscoverage:any=[]
   
   ngOnInit(): void {
      
-    
+    this.Ownerservice.getcoverage().subscribe((data)=>{
+      this.buscoverage=data
+     
+      
+    })
   }
   register="Register"
   signup="Signup"
@@ -53,6 +61,31 @@ export class BuslistComponent implements OnInit {
     console.log("clicked signup")
   }
 
+
+
+
+  toBeBooked()
+  {
+    alert("kjkj")
+  }
+  
+  onfrom()
+  {
+    console.log(this.buscoverage);
+     
+    
+  }
+
+
+
+
+
+
+
+
+
+
+  
 }
 
 

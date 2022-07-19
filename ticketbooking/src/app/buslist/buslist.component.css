@@ -125,6 +125,12 @@
    animation: runing 3s normal ;
 }
 
+.bus-cards{
+   display: flex;
+   /* flex-direction: column; */
+   justify-content: center;
+   align-items: center;
+}
 
 @keyframes runing
 {

@@ -96,6 +96,7 @@ public class BusScheduleService {
 	   for (BusSchedule ScheduledBus: ListOfBusScheduled) {
 		   Bus_Detail bsdetail= bus_detailrepository.findById(ScheduledBus.getBusId()).get();
 		   BusCardModel cardModel = new BusCardModel();
+		   cardModel.setScheduleID(ScheduledBus.getScheduleID());
 		   cardModel.setBookedSeats(ScheduledBus.getBookedSeats());
 		   cardModel.setBusName(ScheduledBus.getBusName());
 		   cardModel.setDepartureArea(ScheduledBus.getDepartureArea());

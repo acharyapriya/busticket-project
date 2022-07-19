@@ -67,5 +67,6 @@ public class BusScheduleController {
 		return busscheduleservice.getschedulebus(from, to, date);
 	    }
 	
+	
 	}
 

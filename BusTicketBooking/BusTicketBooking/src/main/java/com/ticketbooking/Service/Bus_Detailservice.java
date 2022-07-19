@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
 import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Repository.Bus_Detailrepository;
+import com.ticketbooking.model.BusModel;
 
 @Service
 public class Bus_Detailservice {
@@ -19,8 +20,9 @@ public class Bus_Detailservice {
   public Bus_Detail busdetail(Bus_Detail bus_detail)
   {
 	  bus_detail.setBusId(UUID.randomUUID().toString());
-	  String[] coverageNew = bus_detail.getCoverage().split(","); 
-	  bus_detail.setCoverage(coverageNew.toString());
+	  bus_detail.setCoverage(bus_detail.getCoverage().toLowerCase());
+	  
+	  
 	  return bus_detailrepository.save(bus_detail);
   }
   
@@ -31,9 +33,26 @@ public class Bus_Detailservice {
   }
   
   
-  public Bus_Detail getbyiddetail(String bus_id )
+  public BusModel getbyiddetail(String bus_id )
   {
-	  return bus_detailrepository.findById(bus_id).get();
+	 Bus_Detail bus_detail= bus_detailrepository.findById(bus_id).get();
+	  BusModel busmodel=new BusModel();
+	  busmodel.setBusId(bus_detail.getBusId());
+	  busmodel.setBusModel(bus_detail.getBusModel());
+	  busmodel.setBusName(bus_detail.getBusName());
+	  busmodel.setBusNo(bus_detail.getBusNo());
+	   
+	  busmodel.setMode(bus_detail.getMode());
+	  busmodel.setNoOfSeats(bus_detail.getNoOfSeats());
+	  
+	  String[] coverageNew = bus_detail.getCoverage().split(",");
+//	  List<String> coverages=new ArrayList<>();
+//	  for(String coverage:coverageNew)
+//	  {
+//		coverages.add(coverage);
+//	  }
+		  busmodel.setCoverage(coverageNew);
+		  return busmodel;
   }
   
   public Bus_Detail updatebusdetail(Bus_Detail busdetail, String bus_id)
@@ -54,6 +73,25 @@ public class Bus_Detailservice {
 	  bus_detailrepository.deleteById(bus_id);
 	  
   }
-  
+   
+  public List<String> listOfCoverage()
+  {
+	 List<String> coveragedata= bus_detailrepository.listofcoverage();
+	 List<String> newCoverageData=new ArrayList<>();
+	 for(String covdata:coveragedata)
+	 {
+		 String[] revisedcovdata=covdata.split(",");
+		 for(String data:revisedcovdata)
+		 {
+			 if(!newCoverageData.contains(data))
+			 {
+				 newCoverageData.add(data);
+			 }
+			 
+		 }
+	 }
+	 System.out.println(newCoverageData);
+	  return newCoverageData;
+  }
 	
 }
