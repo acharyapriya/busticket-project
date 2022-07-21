@@ -25,6 +25,47 @@
             <label for="exampleFormControlInput1" class="form-label">Coverage</label>
             <input type="text" class="form-control"  name="Coverage" [(ngModel)]="busdetail.coverage" id="exampleFormControlInput1" placeholder="Coverage">
           </div>
+          <div class="seatcount1">
+            <div class="mb-2 seatsize">
+              <label for="exampleFormControlInput1" class="form-label">Left-Row</label>
+              <input type="number" class="form-control" [(ngModel)]="Left_row" name="Coverage"  id="exampleFormControlInput1" placeholder="Coverage">
+            </div>
+            <div class="mb-2 seatsize">
+              <label for="exampleFormControlInput1" class="form-label">Count of seat per row</label>
+              <input type="number" class="form-control" [(ngModel)]="L_Cops" name="Coverage" id="exampleFormControlInput1" placeholder="Coverage">
+            </div>
+            <div class="mb-2 seatsize">
+              <div class="mb-1">
+                
+                <select class="form-select" [(ngModel)]="L_select"  name="seatingtheame"aria-label="Default select example">
+                  <option selected>select seat model</option>
+                  <option value="LNS">Non-Sleeper</option>
+                  <option value="LS">Sleeper</option>
+                </select>
+      
+                </div>
+                </div>
+          </div>
+          <div class="seatcount2">
+            <div class="mb-3 seatsize">
+              <label for="exampleFormControlInput1" class="form-label">Right-Row</label>
+              <input type="number" class="form-control" [(ngModel)]="Right_row" name="Coverage" id="exampleFormControlInput1" placeholder="Coverage">
+            </div>
+            <div class="mb-3 seatsize">
+              <label for="exampleFormControlInput1" class="form-label">count of seat per row</label>
+              <input type="number" class="form-control" [(ngModel)]="R_Cops" name="Coverage" id="exampleFormControlInput1" placeholder="Coverage">
+            </div>
+            <div class="mb-3 seatsize">
+              <div class="mb-1">
+                <label for="bus"></label>
+                <select class="form-select" [(ngModel)]="R_select" name="seatingtheame"aria-label="Default select example">
+                  <option selected>Open this select menu</option>
+                  <option value="RNS">Non-Sleeper</option>
+                  <option  value="RS">Sleeper</option>
+                </select>
+                </div>
+            </div>
+          </div>
           <button type="submit" class=" btn btn-primary">Submit</button>
     </form>
     

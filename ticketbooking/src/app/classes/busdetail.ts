@@ -4,5 +4,6 @@ export class Busdetail {
     noOfSeats!:number ;
     mode!:string ;
     coverage!:string ;
-    busName!:string 
+    busName!:string ;
+    seatingschema!:string
 }

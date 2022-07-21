@@ -11,3 +11,13 @@
     font-weight: 900;
     
 }
+.seatcount1,.seatcount2
+{
+    width:550px;
+    display:flex;
+    justify-content:space-between;
+}
+.seatsize
+{
+    width:150px;
+}
