@@ -1,0 +1,20 @@
+<div class="sudobox">
+<div   *ngFor='let i of sudoko(200)'  class="sudoko">
+ 
+  <!-- <div>{{in+1}} </div>   -->
+  <!-- <div><input #saveUserNameCheckBox [(ngModel)]="isChecked"
+    id="saveUserNameCheckBox" 
+    type="checkbox" 
+    [checked]="saveUsername" 
+    (change)="onSaveUsernameChanged(saveUserNameCheckBox.checked)"> {{in+1}} </div>
+    
+ 
+</div> -->
+<div><input 
+  type="checkbox" 
+  [(ngModel)]="checkbox_checked"
+  (change)="checkbox_checked ? state = 0: state = 1">{{state}}</div>
+  
+
+</div>
+</div>

@@ -1,0 +1,19 @@
+.sudoko
+{
+    width:30px;
+    height:30px;
+    background:rgb(253, 185, 185);
+    border:1px solid black;
+    overflow:hidden;
+}
+
+  
+.sudobox
+{
+    width:25%;
+    display:flex;
+   
+  flex-wrap: wrap;
+    
+   
+}

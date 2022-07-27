@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BuscardlistComponent } from './components/buscardlist/buscardlist.component';
 import { ButttonComponent } from './components/buttton/buttton.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { SudokoComponent } from './components/sudoko/sudoko.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     BuscardlistComponent,
     ButttonComponent,
     PaymentComponent,
+    SudokoComponent,
 ],
   imports: [
    

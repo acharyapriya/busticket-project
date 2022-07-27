@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import org.springframework.stereotype.Service;
 
@@ -60,7 +60,7 @@ public class LoginService {
 	public Login LoginINUser(String UserName, String password) {
 		Login login = loginrepo.FindByUserName(UserName);
 		if(BCrypt.checkpw(password, login.getPassword())) {
-			return loginrepo.FindByUserName(UserName);
+			return login;
 		}else {
 			return null;
 		}
