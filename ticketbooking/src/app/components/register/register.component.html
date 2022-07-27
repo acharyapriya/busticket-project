@@ -1,15 +1,16 @@
 <div class="loginbg">
-    <img src="../../../assets/Images/bgbuslist.jpg">
+    <img src="../../../assets/Images/bus.svg">
     <form class="login" (ngSubmit)="submitcredential()">
         <div class="loginfield">
             <h4>Registration</h4>
 
-            <input type="text" name="user" [(ngModel)]="login.username" placeholder="User name" required>
+            <input type="text" name="username" [(ngModel)]="login.username" placeholder="User name" required>
             <input type="password"  name="password"[(ngModel)]="login.password" placeholder="Password" required>
-            <input type="tel" name="mobileno"  [(ngModel)]="login.mobileno" placeholder="91-xxxx-xxxx-xx" required>
+            <input type="text" name="mobileno"  [(ngModel)]="login.mobileno" placeholder="91-xxxx-xxxx-xx" required>
             <div class="loginbtn">
                 <button type="submit">submit</button>
             </div>
         </div>
     </form>
+    
 </div>

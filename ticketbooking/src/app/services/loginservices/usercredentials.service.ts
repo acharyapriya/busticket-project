@@ -15,5 +15,9 @@ export class UsercredentialsService {
   {
     return this.http.post<any>(`${this.baseurl}/login`,login)
   }
+  loginUser(username:string,password:string):Observable<any>
+  {
+    return this.http.get(`${this.baseurl}/signup?username=${username}&password=${password}`)
+  }
 
 }

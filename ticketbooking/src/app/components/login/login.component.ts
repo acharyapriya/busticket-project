@@ -1,4 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsercredentialsService } from 'src/app/services/loginservices/usercredentials.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username!:string
+  password!:string
+
+  constructor(private credential:UsercredentialsService,private router_:Router) { }
 
   ngOnInit(): void {
   }
 
+  login(){
+    this.credential.loginUser(this.username,this.password).subscribe((data)=>{
+      if(data){
+        this.router_.navigate(["/home"])
+      }else{
+        this.router_.navigate(["/login"])
+      }
+    });
+    
+  }
 }

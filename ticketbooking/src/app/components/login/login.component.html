@@ -1,14 +1,14 @@
 <div class="loginbg">
     <img src="bgbuslist.jpg">
-    <form class="login">
+    <form class="login" (ngSubmit)="login()">
         <div class="loginfield">
             <h4>Login</h4>
 
-            <input type="text" placeholder="User name" required>
-            <input type="password" placeholder="Password" required>
+            <input type="text" name="username" [(ngModel)]="username"  placeholder="User name" required>
+            <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required>
            
             <div class="loginbtn">
-                <button type="button">submit</button>
+                <button type="submit">submit</button>
             </div>
         </div>
     </form>

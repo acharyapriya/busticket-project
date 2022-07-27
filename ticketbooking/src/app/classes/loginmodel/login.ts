@@ -1,5 +1,5 @@
 export class Login {
-    username!:String;
-    password!:String;
-    mobileno!:Number;
+    username!:string;
+    password!:string;
+    mobileno!:string;
 }

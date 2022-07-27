@@ -18,7 +18,7 @@ public class Login {
   private String userid;
   private String username;
   private String password;
-  private long mobileno;
+  private String mobileno;
   
 @Override
 public String toString() {

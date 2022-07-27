@@ -2,6 +2,8 @@ package com.ticketbooking.Controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,20 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketbooking.Service.LoginService;
 import com.ticketbooking.Entity.Login;
-@CrossOrigin("http://localhost:4200")
+
 @RestController
 public class LoginCtrlr {
 	
     @Autowired
     private LoginService loginservice;
     
+    @CrossOrigin("http://localhost:4200")
     @PostMapping("/login")
-    public ResponseEntity<String> Login(@RequestBody Login login) {
+    public Login Login(@RequestBody Login login) {
     	if(loginservice.UserExist(login.getUsername())) {
-    		return new ResponseEntity<String>("USER ALREADY EXIST", HttpStatus.BAD_GATEWAY);
+    		return null;
     	}else {
-    		loginservice.saveuserdetail(login);
-        	return  new ResponseEntity<String>("NEW USER IS CREATED", HttpStatus.OK);
+    		
+        	return  loginservice.saveuserdetail(login);
     	}
     	
     }
@@ -39,12 +42,13 @@ public class LoginCtrlr {
     	return loginservice.getuserdetail();	 
     }
     
+    @CrossOrigin("http://localhost:4200")
     @GetMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody Login login) {
-    	if(loginservice.LoginINUser(login.getUsername(), login.getPassword())!= null) {
-    	return new ResponseEntity<Login>( loginservice.LoginINUser(login.getUsername(), login.getPassword()),HttpStatus.OK);
+    public ResponseEntity<?> signup(@PathParam("username") String username,@PathParam("password") String password ) {
+    	if(loginservice.LoginINUser(username, password)!= null) {
+    	return new ResponseEntity<>( loginservice.LoginINUser(username, password),HttpStatus.OK);
     }else {
-    	return new ResponseEntity<String>("USER DOES NOT EXIST, TRY REGISTERING",HttpStatus.INTERNAL_SERVER_ERROR);
+    	return new ResponseEntity<>("USER DOES NOT EXIST, TRY REGISTERING",HttpStatus.INTERNAL_SERVER_ERROR);
     }
     }
     

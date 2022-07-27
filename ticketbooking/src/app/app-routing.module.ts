@@ -10,7 +10,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { SudokoComponent } from './components/sudoko/sudoko.component';
 
 const routes: Routes = [
-  {path:'' ,component:SudokoComponent}, 
+  {path:'',component:RegisterComponent},
+  {path:'login',component:LoginComponent},
+  {path:'sudoko' ,component:SudokoComponent}, 
 {path:'home' ,component:BuslistComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'adminpanel',component:AdminpannelComponent},

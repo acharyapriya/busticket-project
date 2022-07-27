@@ -33,7 +33,7 @@ export class AdminpannelComponent implements OnInit {
   onsubmit()
   {
     console.log("value",this.bschedule);
-    this.Adminservice. postbusschedule(this.bschedule).subscribe(
+    this.Adminservice.postbusschedule(this.bschedule).subscribe(
       (sch)=>{
         alert(" submited sucessfully")
       }
