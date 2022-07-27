@@ -9,7 +9,7 @@ import { OwnersserviceService } from '../services/ownersservice.service';
 })
 export class BuslistComponent implements OnInit {
  
-  
+  username!:any
 
   constructor(private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService) { }
   busschedule=new Busschedule();
@@ -18,7 +18,7 @@ export class BuslistComponent implements OnInit {
   buscoverage:any=[]
   
   ngOnInit(): void {
-     
+    this.username = localStorage.getItem("loginUser")
     this.Ownerservice.getcoverage().subscribe((data)=>{
       this.buscoverage=data
      

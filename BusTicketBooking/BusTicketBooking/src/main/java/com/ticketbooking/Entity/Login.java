@@ -17,6 +17,8 @@ public class Login {
   @Id
   private String userid;
   private String username;
+  private String name;
+  private String email;
   private String password;
   private String mobileno;
   

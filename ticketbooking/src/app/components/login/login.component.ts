@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
     this.credential.loginUser(this.username,this.password).subscribe((data)=>{
       if(data){
         this.router_.navigate(["/home"])
+        localStorage.setItem("loginUser",data.name)
+        console.log(data.username)
       }else{
         this.router_.navigate(["/login"])
       }

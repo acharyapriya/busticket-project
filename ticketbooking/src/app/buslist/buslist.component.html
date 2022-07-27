@@ -9,6 +9,18 @@
   <app-buttton [color]="danger"  (newEvent)="onclickpin()"  [name]="pin"></app-buttton> -->
   <!-- </div> -->
   <div class="journeysection">
+    <div class="profileheader dropdown">
+     
+      <img src="../../assets/Images/profile.svg"/>
+      <h1 class="profile">{{username}}</h1>
+      <div class="dropdown-item">
+        
+        <div class="caption"> <button type="button" class="logoutbtn btn btn-primary">LogOut</button></div>
+        </div>
+   
+   
+    </div>
+    
     <form (ngSubmit)="getbusschedule()">
     <div class="journeybox shadow p-3 mb-5 bg-body rounded">
       <div class="journeyinp">

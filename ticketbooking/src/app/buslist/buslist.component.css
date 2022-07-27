@@ -29,7 +29,58 @@
     width: 100%;
     height: 100%;
 } */
+.profileheader
+{
+   display:flex;
+   margin-right: 127px; 
+   float: right;
+   color: white;
 
+   
+ 
+}
+.dropdown {
+   position: relative;
+   display: inline-block;
+ 
+ }
+
+ .dropdown-item {
+   display: none;
+   position: absolute;
+  
+   min-width: 50px;
+   z-index: 1;
+ }
+
+ .dropdown:hover .dropdown-item {
+   display: block;
+   
+ }
+ 
+
+ /* .caption {
+   padding: 15px;
+   text-align: center;
+   text-decoration: underline;
+   color:white;
+ } */
+.logoutbtn
+{
+   margin-left:20px;
+   width:100px;
+
+}
+
+.profileheader img
+{
+width:30px;
+height:30px;
+}
+.profile
+{
+   font-size: 19px;
+}
 .cardcontent
 {
    width:1000px;
