@@ -32,7 +32,6 @@
 .profileheader
 {
    display:flex;
-   margin-right: 127px; 
    float: right;
    color: white;
 
@@ -67,8 +66,9 @@
  } */
 .logoutbtn
 {
-   margin-left:20px;
-   width:100px;
+   margin-right:20px;
+   width:80px;
+   
 
 }
 

@@ -10,15 +10,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { SudokoComponent } from './components/sudoko/sudoko.component';
 
 const routes: Routes = [
-  {path:'',component:RegisterComponent},
+  {path:'',component:BuslistComponent},
   {path:'login',component:LoginComponent},
   {path:'sudoko' ,component:SudokoComponent}, 
-{path:'home' ,component:BuslistComponent},
+{path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'adminpanel',component:AdminpannelComponent},
 {path:'detail',component:BusdetailComponent},
 {path:'register',component:RegisterComponent},
-{path:'login',component:LoginComponent}
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.credential.loginUser(this.username,this.password).subscribe((data)=>{
       if(data){
-        this.router_.navigate(["/home"])
+        this.router_.navigate([""])
         localStorage.setItem("loginUser",data.name)
         console.log(data.username)
       }else{
@@ -30,4 +30,5 @@ export class LoginComponent implements OnInit {
     });
     
   }
+  
 }

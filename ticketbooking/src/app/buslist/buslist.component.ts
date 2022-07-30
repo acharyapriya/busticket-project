@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Busschedule } from '../classes/busschedule';
 import { AdminserviceService } from '../services/adminservice.service';
+import { UsercredentialsService } from '../services/loginservices/usercredentials.service';
 import { OwnersserviceService } from '../services/ownersservice.service';
 @Component({
   selector: 'app-buslist',
@@ -9,16 +12,23 @@ import { OwnersserviceService } from '../services/ownersservice.service';
 })
 export class BuslistComponent implements OnInit {
  
-  username!:any
-
-  constructor(private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService) { }
+  username1!:any
+  username!:string
+  password!:string
+  data: any;
+ 
+  constructor(private credential:UsercredentialsService,private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService, private router_:Router) { }
   busschedule=new Busschedule();
   schedulelist:any=[];
   today= new Date();
   buscoverage:any=[]
-  
+  if_userpresent=true;
   ngOnInit(): void {
-    this.username = localStorage.getItem("loginUser")
+    
+    if(localStorage.getItem("loginUser")){
+      this.username1 = localStorage.getItem("loginUser")
+      this.if_userpresent = !this.if_userpresent 
+    }
     this.Ownerservice.getcoverage().subscribe((data)=>{
       this.buscoverage=data
      
@@ -60,11 +70,14 @@ export class BuslistComponent implements OnInit {
   onclicksignup(){
     console.log("clicked signup")
   }
-
-
-
-
-  toBeBooked()
+    
+  logout(event:any){
+    if(event){
+      localStorage.clear()
+      this.router_.navigate([""]).then(() =>{window.location.reload()})
+    }
+  }
+ toBeBooked()
   {
     alert("kjkj")
   }
@@ -76,7 +89,33 @@ export class BuslistComponent implements OnInit {
     
   }
 
-
+  loginpop(event:any)
+  {
+    Swal.fire({
+      title: "Login",
+    
+      html:
+      '<input id="swal-input1" class="swal2-input" placeholder="username">' +
+      '<input id="swal-input2" class="swal2-input" placeholder="password">',
+      showCancelButton: true,
+      showLoaderOnConfirm: true,
+      
+      preConfirm: () => {
+        
+        this.credential.loginUser(this.username,this.password).subscribe((data)=>{
+          if(data){
+            this.router_.navigate([""])
+            localStorage.setItem("loginUser",data.name)
+            console.log(data)
+          }else{
+            this.router_.navigate(["/login"])
+          }
+        });
+  }})
+        
+    
+  }
+  }
 
 
 
@@ -86,6 +125,6 @@ export class BuslistComponent implements OnInit {
 
 
   
-}
+
 
 

@@ -9,14 +9,21 @@
   <app-buttton [color]="danger"  (newEvent)="onclickpin()"  [name]="pin"></app-buttton> -->
   <!-- </div> -->
   <div class="journeysection">
-    <div class="profileheader dropdown">
-     
-      <img src="../../assets/Images/profile.svg"/>
+    <div class="profileheader dropdown" >
+      <div [class.d-none]="!if_userpresent" >
+        <button type="button" class="logoutbtn btn btn-primary"(click)="loginpop($event)" routerLink="/login">Login</button>
+        <button type="button" class="logoutbtn btn btn-primary" routerLink="/register">Register</button>
+      </div>
+    
+      <div class="profavatar" [class.d-none]="if_userpresent">
+        <img src="../../assets/Images/profile.svg"/>
       <h1 class="profile">{{username}}</h1>
       <div class="dropdown-item">
         
-        <div class="caption"> <button type="button" class="logoutbtn btn btn-primary">LogOut</button></div>
+        <div class="caption"> <button type="button" (click)="logout($event)" class="logoutbtn btn btn-primary">LogOut</button></div>
         </div>
+      </div>
+      
    
    
     </div>
