@@ -35,23 +35,39 @@
         <input type="date" class="form-control"  id="floatingInput" min="{{today | date:'yyyy-MM-dd'}}" name = "date" [(ngModel)]="date">
         </div>
         <div class="form-floating mb-3 ">
-          <select class="form-select" (ngModelChange)="onfrom()" [(ngModel)]="from" name="from"  aria-label="Default select example" >
+          <select class="form-select"  (ngModelChange)="onfrom($event)" [(ngModel)]="from" name="from"  aria-label="Default select example" >
             <option selected>Where to Pickup?</option>
             <option  [value]="value" *ngFor="let value of buscoverage" >{{value}}</option>
           </select>
          
         </div>
         <div class="form-floating">
-          <select class="form-select" (ngModelChange)="onfrom()" [(ngModel)]="to" name="to"  aria-label="Default select example" >
-            <option selected>Where to Pickup?</option>
-            <option  [value]="value" *ngFor="let value of buscoverage" >{{value}}</option>
+          <select class="form-select"   [(ngModel)]="to" name="to"  aria-label="Default select example" >
+            <option selected>Where to dro?</option>
+            <option  [value]="value" *ngFor="let value of savefromoption" >{{value}}</option>
+            
           </select>
-        </div>
+          
+          </div>
+
+        <!-- <mat-form-field>
+        
+          <mat-select placeholder="from" [formcontrol]="fromoption1" required [(ngModel)]="to" name="to"  aria-label="Default select example" >
+            <mat-option *ngFor="let value of savefromoption" [value]="value">
+           {{value}}
+          </mat-option>
+          <mat-error *ngIf="fromoption1.haserror('required')">please select</mat-error>
+          </mat-select>
+         
+        
+      </mat-form-field> -->
+
+
        
        
       </div>
       <div class="submitbtn">
-        <button type="submit" class="btn btn-secondary submitBtn" >Submit
+        <button type="submit"  [disabled]="!date||!from || !to" class="btn btn-secondary submitBtn" >Submit
         </button>
         <img class="busimage" src="../../assets/Images/bus2.svg">
       </div>
@@ -59,7 +75,6 @@
     </div>
     </form>
    
-    <!-- {{schedulelist|json}} -->
   </div>
   <app-buscardlist [class.d-none]="showmusiccard" [schedulelist]="schedulelist"></app-buscardlist>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Busschedule } from '../classes/busschedule';
@@ -11,11 +12,12 @@ import { OwnersserviceService } from '../services/ownersservice.service';
   styleUrls: ['./buslist.component.css']
 })
 export class BuslistComponent implements OnInit {
- 
+  fromoption1 = new FormControl('', [Validators.required]);
   username1!:any
   username!:string
   password!:string
   data: any;
+
  
   constructor(private credential:UsercredentialsService,private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService, private router_:Router) { }
   busschedule=new Busschedule();
@@ -81,9 +83,26 @@ export class BuslistComponent implements OnInit {
   {
     alert("kjkj")
   }
-  
-  onfrom()
+  savefromoption:any=[];
+  onfrom(data:any)
   {
+    if(data)
+    {
+      this.savefromoption=[]
+      for (var i in this.buscoverage)
+      {
+        if(this.buscoverage[i]!=data)
+        {
+
+          const fromstored=this.buscoverage[i];
+          this.savefromoption.push(fromstored);
+        }
+        else(data='')
+        
+      }
+    }
+   
+ 
     console.log(this.buscoverage);
      
     
@@ -106,7 +125,7 @@ export class BuslistComponent implements OnInit {
           if(data){
             this.router_.navigate([""])
             localStorage.setItem("loginUser",data.name)
-            console.log(data)
+            console.log(data.username)
           }else{
             this.router_.navigate(["/login"])
           }
