@@ -1,6 +1,7 @@
 package com.ticketbooking.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +37,9 @@ public class BusScheduleService {
 	   NewScheduledBus.setFairPerSeat(busschedule.getFairPerSeat());
 	   NewScheduledBus.setReachTime(busschedule.getReachTime());
 	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
+	   System.out.println(NewScheduledBus.getStartingTime().getTime()); 
+	   Date date = new Date(); 
+	   if(NewScheduledBus.getStartingTime().getTime() > date.getTime())
 	   return busschedulerepo.save(NewScheduledBus);
 	    
    }

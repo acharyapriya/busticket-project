@@ -29,6 +29,7 @@ public class BusSchedule {
 	private Date startingTime;
 	private Date reachTime;
 	private int fairPerSeat;
+	private String available_status;
 	
 	
 	

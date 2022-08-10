@@ -15,10 +15,21 @@ export class AdminpannelComponent implements OnInit {
   constructor(private Adminservice:AdminserviceService,private ownerservice:OwnersserviceService) { }
   bschedule = new Busschedule()
   allbusdetail:any=[]
+  stringdate:any;
+   currentdate = new Date()
+   fulldate:string | undefined
   ngOnInit(): void {
     this.getallbusdetail()
+    const month=this.formatDate(this.currentdate.getMonth() +1) 
+    const date = this.formatDate(this.currentdate.getDate())
+    this.fulldate = `${this.currentdate.getFullYear()}-${month}-${date}T${this.currentdate.getHours()}:${this.currentdate.getMinutes()}`
    
   }
+  private formatDate(nmbr: number): string {
+    var date = nmbr + "";
+    date = (date.length < 2) ? "0" + date : date;
+    return date;
+}
   selectedTeam:String ="";
   values!:String;
   getallbusdetail(){
