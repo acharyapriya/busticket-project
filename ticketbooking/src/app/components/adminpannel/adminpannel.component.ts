@@ -4,6 +4,7 @@ import {} from '@angular/forms'
 import { AdminserviceService } from 'src/app/services/adminservice.service';
 import { OwnerspannelComponent } from '../ownerspannel/ownerspannel.component';
 import { OwnersserviceService } from 'src/app/services/ownersservice.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-adminpannel',
@@ -15,21 +16,11 @@ export class AdminpannelComponent implements OnInit {
   constructor(private Adminservice:AdminserviceService,private ownerservice:OwnersserviceService) { }
   bschedule = new Busschedule()
   allbusdetail:any=[]
-  stringdate:any;
-   currentdate = new Date()
-   fulldate:string | undefined
+  currentdate = new Date()
   ngOnInit(): void {
     this.getallbusdetail()
-    const month=this.formatDate(this.currentdate.getMonth() +1) 
-    const date = this.formatDate(this.currentdate.getDate())
-    this.fulldate = `${this.currentdate.getFullYear()}-${month}-${date}T${this.currentdate.getHours()}:${this.currentdate.getMinutes()}`
-   
   }
-  private formatDate(nmbr: number): string {
-    var date = nmbr + "";
-    date = (date.length < 2) ? "0" + date : date;
-    return date;
-}
+  
   selectedTeam:String ="";
   values!:String;
   getallbusdetail(){
@@ -41,9 +32,12 @@ export class AdminpannelComponent implements OnInit {
 	onSelected(value:string): void {
 		this.selectedTeam = value;
 	}
+  datepipe!:DatePipe;
   onsubmit()
   {
-    console.log("value",this.bschedule);
+    console.log("value",this.bschedule.startingTime);
+    const finaldate = this.datepipe.transform(this.bschedule.startingTime,"yyyy-MM-DD HH:mm") 
+    console.log(finaldate)
     this.Adminservice.postbusschedule(this.bschedule).subscribe(
       (sch)=>{
         alert(" submited sucessfully")

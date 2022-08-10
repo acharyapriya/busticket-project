@@ -42,11 +42,11 @@
           </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">STARTING TIME</label>
-          <input type = "datetime-local" [min]="fulldate" [(ngModel)]="bschedule.startingTime"  class="form-control" name = "startingtime"> 
+          <input type = "datetime-local" [min]="currentdate| date:'yyyy-MM-ddThh:mm'" [(ngModel)]="bschedule.startingTime"  class="form-control" name = "startingtime"> 
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">ENDING TIME</label>
-          <input type = "datetime-local" min="date"  [(ngModel)]="bschedule.reachTime" class="form-control" name = "reachedtime"> 
+          <input type = "datetime-local" [min]="currentdate| date:'yyyy-MM-ddThh:mm'"  [(ngModel)]="bschedule.reachTime" class="form-control" name = "reachedtime"> 
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">FAIR PER SEATS</label>
@@ -54,7 +54,6 @@
           </div>
           <button type="submit" class=" btn btn-primary">Submit</button>
     </form>
-    {{fulldate}}
 </div>
 <app-busdetail></app-busdetail>
 
