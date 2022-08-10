@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BuslistComponent } from './buslist/buslist.component';
 
 import { OwnerspannelComponent } from './components/ownerspannel/ownerspannel.component';
 import { AdminpannelComponent } from './components/adminpannel/adminpannel.component';
@@ -19,12 +18,15 @@ import { BuscardlistComponent } from './components/buscardlist/buscardlist.compo
 import { ButttonComponent } from './components/buttton/buttton.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { SudokoComponent } from './components/sudoko/sudoko.component';
+import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
+// import { QRCodeModule } from 'angularx-qrcode';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuslistComponent,
     OwnerspannelComponent,
     AdminpannelComponent,
     BusdetailComponent,
@@ -36,12 +38,14 @@ import { SudokoComponent } from './components/sudoko/sudoko.component';
     ButttonComponent,
     PaymentComponent,
     SudokoComponent,
+    QrGeneratorComponent,
+    HomepageComponent,
 ],
   imports: [
    
     BrowserModule,
     AppRoutingModule,
-    FormsModule,HttpClientModule
+    FormsModule,HttpClientModule,NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
