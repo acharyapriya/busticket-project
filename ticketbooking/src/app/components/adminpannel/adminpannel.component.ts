@@ -29,10 +29,13 @@ export class AdminpannelComponent implements OnInit {
   current_date!:any
 
   ngOnInit(): void {
+    this.getallbusdetail()
     console.log(this.datepipe.transform(this.currentdate,'hh:mm'))
   }
 
-  
+  getallbusdetail(){
+    this.ownerservice.getbusdetail().subscribe((date)=>{this.allbusdetail=date})
+  }
 
   onSelected(value: string): void {
     this.selectedTeam = value;
