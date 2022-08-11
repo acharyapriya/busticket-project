@@ -1,5 +1,8 @@
 package com.ticketbooking.Entity;
 
+
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -26,8 +29,8 @@ public class BusSchedule {
 	private String departureArea;
 	private int noOfSeats;
 	private int bookedSeats;
-	private String startingTime;
-	private Date reachTime;
+	private LocalDateTime startingTime;
+	private LocalDateTime reachTime;
 	private int fairPerSeat;
 	private String available_status;
 	

@@ -41,29 +41,10 @@ public class BusScheduleService {
 	   NewScheduledBus.setReachTime(busschedule.getReachTime());
 	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
 	   System.out.println(busschedule.getStartingTime()); 
-	   try {
-		 Date formater= new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy").parse(busschedule.getStartingTime().toString());
-		 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:MM");
-//		   NewScheduledBus.setStartingTime(formatter.format(formater));
-
-		 System.out.println(formatter.format(formater));
-	} catch (ParseException e) {
-		
-		e.printStackTrace();
-	}
-	   
+	  
 	   Date date = new Date(); 
 	   System.out.println(date.getTime());
-//	   if(NewScheduledBus.getStartingTime().getTime() >date.getTime())
-//	   {
-//		   NewScheduledBus.setAvailable_status("available");
-//		   
-//		   
-//	   }
-//	   else
-//	   {	
-//		   NewScheduledBus.setAvailable_status("unavailable");
-//	   }
+
 	   return busschedulerepo.save(NewScheduledBus);
 	    
    }
@@ -95,7 +76,7 @@ public class BusScheduleService {
 	   cardModel.setTo(bsschedule.getTo());
 	   cardModel.setNoOfSeats(bsschedule.getNoOfSeats());
 	   cardModel.setReachTime(bsschedule.getReachTime());
-//	   cardModel.setStartingTime(bsschedule.getStartingTime());
+	   cardModel.setStartingTime(bsschedule.getStartingTime());
 	   cardModel.setMode(bsdetail.getBusModel());
 	   return cardModel;
    }
@@ -134,7 +115,7 @@ public class BusScheduleService {
 		   cardModel.setTo(ScheduledBus.getTo());
 		   cardModel.setNoOfSeats(ScheduledBus.getNoOfSeats());
 		   cardModel.setReachTime(ScheduledBus.getReachTime());
-//		   cardModel.setStartingTime(ScheduledBus.getStartingTime());
+		   cardModel.setStartingTime(ScheduledBus.getStartingTime());
 		   cardModel.setMode(bsdetail.getBusModel());
 		   BusCardModel.add(cardModel);
 		   

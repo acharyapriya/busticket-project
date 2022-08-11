@@ -76,8 +76,7 @@
       </form>
      
     </div>
-    <app-buscardlist [class.d-none]="showmusiccard" [schedulelist]="schedulelist"></app-buscardlist>
-  
+    <app-buscardlist *ngIf="schedulelist!=null" [schedulelist]="schedulelist"></app-buscardlist>
     </div>
   
     

@@ -1,5 +1,6 @@
 package com.ticketbooking.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -21,8 +22,8 @@ public class BusCardModel {
 	private String departureArea;
 	private int noOfSeats;
 	private int bookedSeats;
-	private Date startingTime;
-	private Date reachTime;
+	private LocalDateTime startingTime;
+	private LocalDateTime reachTime;
 	private int fairPerSeat;
 	private String mode;
 }

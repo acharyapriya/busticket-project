@@ -22,6 +22,7 @@ import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
 // import { QRCodeModule } from 'angularx-qrcode';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     AppRoutingModule,
     FormsModule,HttpClientModule,NgxQRCodeModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   // schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
