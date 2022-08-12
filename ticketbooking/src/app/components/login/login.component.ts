@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Login } from 'src/app/classes/loginmodel/login';
 import { UsercredentialsService } from 'src/app/services/loginservices/usercredentials.service';
 
 @Component({
@@ -12,8 +13,8 @@ export class LoginComponent implements OnInit {
 
   username!:string
   password!:string
-
-  constructor(private credential:UsercredentialsService,private router_:Router) { }
+  reg=new Login()
+  constructor(private credential:UsercredentialsService,private router_:Router,private usercredential:UsercredentialsService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,16 @@ export class LoginComponent implements OnInit {
       }
     });
     
+  }
+
+  submitcredential()
+  {
+    console.log(this.login);
+    this.usercredential.postusercredential(this.reg).subscribe((data)=>{
+      this.router_.navigate(["/login"]);
+    })
+    
+
   }
   
 }

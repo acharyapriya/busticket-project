@@ -31,7 +31,6 @@ public class LoginCtrlr {
     	if(loginservice.UserExist(login.getUsername())) {
     		return null;
     	}else {
-    		
         	return  loginservice.saveuserdetail(login);
     	}
     	

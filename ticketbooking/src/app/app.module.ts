@@ -23,6 +23,7 @@ import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { DatePipe } from '@angular/common';
+import {  NgxPasswordStrengthMeterModule } from 'ngx-password-strength-meter';
 
 
 @NgModule({
@@ -40,13 +41,13 @@ import { DatePipe } from '@angular/common';
     PaymentComponent,
     SudokoComponent,
     QrGeneratorComponent,
-    HomepageComponent,
+    HomepageComponent
 ],
   imports: [
    
     BrowserModule,
     AppRoutingModule,
-    FormsModule,HttpClientModule,NgxQRCodeModule
+    FormsModule,HttpClientModule,NgxQRCodeModule,NgxPasswordStrengthMeterModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

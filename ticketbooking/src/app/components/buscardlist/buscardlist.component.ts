@@ -19,7 +19,8 @@ export class BuscardlistComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+  data!:string 
+  busID!:string 
  
   public scrollRight() {
     
@@ -29,8 +30,7 @@ export class BuscardlistComponent implements OnInit {
   public scrollLeft() {
     this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 400), behavior: 'smooth' });
   }
-    data!:string 
-    busID!:string 
+   
   hello(busid:string){
     this.busID = busid
    

@@ -1,13 +1,13 @@
 .home-background
 {
-   background-image: url("../../../assets/Images/busbackground.jpg");
+   background-image: url("../../../assets/Images/busBG.jpg");
    background-position: center;
    background-repeat: no-repeat;
+   background-size: cover;
    height:100vh;
 }
 .journeybox
 {
-  
   width:650px;
    padding: 20px;
    margin-top: 10px;
@@ -15,55 +15,16 @@
    margin:auto;
    border-radius:15px;
    box-shadow:10px 10px;
-   
-   
-   
 }
 
-
-/* .journeysection
-{
-   display: flex;
-   justify-content:space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-} */
 .profileheader
 {
    display:flex;
    float: right;
-   color: white;
-
-   
- 
+   right: 4%;
 }
-.dropdown {
-   position: relative;
-   display: inline-block;
- 
- }
 
- .dropdown-item {
-   display: none;
-   position: absolute;
-  
-   min-width: 50px;
-   z-index: 1;
- }
 
- .dropdown:hover .dropdown-item {
-   display: block;
-   
- }
- 
-
- /* .caption {
-   padding: 15px;
-   text-align: center;
-   text-decoration: underline;
-   color:white;
- } */
 .logoutbtn
 {
    margin-right:20px;
@@ -72,11 +33,7 @@
 
 }
 
-.profileheader img
-{
-width:30px;
-height:30px;
-}
+
 .profile
 {
    font-size: 19px;
@@ -117,14 +74,6 @@ height:30px;
    float:left;
 }
 
-/* .signbutton:hover ~ .busimg
-{
-   width:30px;
-   position:absolute;
-   top:0;
-   left:0;
-   float:left;
-} */
 
 
 @keyframes runingBus
@@ -191,3 +140,24 @@ height:30px;
 }
  
  
+.profiler-avatar {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+}
+.profavatar{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   }
+
+.submit_btn{
+   display: flex;
+   width: 100%;
+   justify-content: center;
+}
+.error.msg{
+   color:red;
+   font-size: 10px;
+   
+}
