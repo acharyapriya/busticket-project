@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
@@ -94,4 +95,19 @@ public class Bus_Detailservice {
 	  return newCoverageData;
   }
 	
+  
+  ////login for owner
+  public Bus_Detail busdetail(String BusName,String busNo)
+  {
+	  Bus_Detail busdetail=bus_detailrepository.findbus_name(BusName);
+	  if (BCrypt.checkpw(busNo,busdetail.getBusNo())) {
+		  return busdetail;
+	  }
+	  else
+	  {
+		  return null;
+	  }
+	  
+  }
+  
 }

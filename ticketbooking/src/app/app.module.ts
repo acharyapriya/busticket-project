@@ -24,6 +24,9 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { DatePipe } from '@angular/common';
 import {  NgxPasswordStrengthMeterModule } from 'ngx-password-strength-meter';
+import { SchedulebusCardComponent } from './components/schedulebus-card/schedulebus-card.component';
+
+import { AdminOwnercredentialComponent } from './components/admin-ownercredential/admin-ownercredential.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import {  NgxPasswordStrengthMeterModule } from 'ngx-password-strength-meter';
     PaymentComponent,
     SudokoComponent,
     QrGeneratorComponent,
-    HomepageComponent
+    HomepageComponent,
+    SchedulebusCardComponent,
+
+    AdminOwnercredentialComponent
 ],
   imports: [
    

@@ -2,6 +2,8 @@ package com.ticketbooking.Controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,16 +52,16 @@ public class BusScheduleController {
 		   return busscheduleservice.getscheduleid(busId);
 	    }
 	@PutMapping("/updateidschedule/{id}")
-	    public BusSchedule updateschedule(@PathVariable("id") String busId, @RequestBody BusSchedule busschedule)
+	    public BusSchedule updateschedule(@PathVariable("id") String scheduleID, @RequestBody BusSchedule busschedule)
 	    {
-		return busscheduleservice.updateschedule(busschedule,busId);
+		return busscheduleservice.updateschedule(busschedule,scheduleID);
 	    }
 	
 	@DeleteMapping("/deleteschedule/{id}")
-	   public String deleteschedule(@PathVariable("id") String busId)
+	   public void deleteschedule(@PathVariable("id") String scheduleID)
 	   {
-		busscheduleservice.deleteschedule(busId);
-		return "deleted successfully";
+		busscheduleservice.deleteschedule(scheduleID);
+		
 	   }
 	@GetMapping("/from={from}/to={to}/{date}")
 	    public List<BusCardModel> fetchallbusdetail (@PathVariable("from")String from,@PathVariable("to")String to,@PathVariable("date")String date)

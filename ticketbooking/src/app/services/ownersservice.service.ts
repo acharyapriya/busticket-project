@@ -23,13 +23,18 @@ export class OwnersserviceService {
     return this.http.get<any>(`${this.baseurl}/busdetail/${id}`)
   }
 
-  deletebusdetail(id:String):Observable<any>{
-    console.log(`${this.baseurl}/deletedetail/${id}`)
+  deletebusdetail(id:String){
     return this.http.delete<any>(`${this.baseurl}/deletedetail/${id}`)
   }
 
   getcoverage():Observable<any>
   {
     return this.http.get<any>(`${this.baseurl}/getcoverage`)
+  }
+
+  update_schedule(id:String,BusDetail:Busdetail):Observable<any>
+  {
+   return this.http.put<any>(`${this.baseurl}/updatedetail/${id}`,BusDetail)
+   
   }
 }

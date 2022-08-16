@@ -41,7 +41,7 @@ public class BusScheduleService {
 	   NewScheduledBus.setReachTime(busschedule.getReachTime());
 	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
 	   System.out.println(busschedule.getStartingTime()); 
-	  
+	   
 	   Date date = new Date(); 
 	   System.out.println(date.getTime());
 
@@ -80,9 +80,9 @@ public class BusScheduleService {
 	   cardModel.setMode(bsdetail.getBusModel());
 	   return cardModel;
    }
-   public BusSchedule updateschedule(BusSchedule busschedule,String busId)
+   public BusSchedule updateschedule(BusSchedule busschedule,String scheduleID)
    {
-	   BusSchedule scheduledetails=busschedulerepo.findById(busId).get();
+	   BusSchedule scheduledetails=busschedulerepo.findById(scheduleID).get();
 	   scheduledetails.setDepartureArea(busschedule.getDepartureArea());
 	   scheduledetails.setFrom(busschedule.getFrom());
 	   scheduledetails.setTo(busschedule.getTo());
@@ -90,11 +90,12 @@ public class BusScheduleService {
 	   scheduledetails.setStartingTime(busschedule.getStartingTime());
 	   scheduledetails.setReachTime(busschedule.getReachTime());
 	   scheduledetails.setFairPerSeat(busschedule.getFairPerSeat());
+	   scheduledetails.setAvailable_status(busschedule.getAvailable_status());
 	   return busschedulerepo.save(scheduledetails);
  }
-   public void deleteschedule(String busId)
+   public void deleteschedule(String scheduleID)
    {
-	    busschedulerepo.deleteById(busId);
+	    busschedulerepo.deleteById(scheduleID);
    }
    
    public List<BusCardModel> getschedulebus(String from,String to,String date)

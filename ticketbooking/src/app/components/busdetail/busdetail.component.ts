@@ -25,6 +25,7 @@ export class BusdetailComponent implements OnInit {
 
   deletebyidbusdetail(id:string){
     this.ownerservice.deletebusdetail(id).subscribe((data)=>{
+      console.log("data")
     this._router.navigate(["/detail"]).then(()=>{
       window.location.reload()
     }    )

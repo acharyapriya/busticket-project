@@ -23,4 +23,17 @@ export class AdminserviceService {
   {
     return this.http.get<any>(`${this.baseurl}/from=${from}/to=${to}/${date}`)
   }
+  getAllScheduledbs_detail():Observable<any>{
+    return this.http.get<any>(`${this.baseurl}/getbusschedule`)
+  }
+
+  busschedule_delete(id:String){
+    return this.http.delete<any>(`${this.baseurl}/deleteschedule/${id}`)
+  }
+
+  update_schedule(id:String,Busschedule:Busschedule):Observable<any>
+  {
+   return this.http.put<any>(`${this.baseurl}/updateidschedule/${id}`,Busschedule)
+   
+  }
 }

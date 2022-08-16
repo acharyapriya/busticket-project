@@ -1,9 +1,4 @@
-.card-body-sec div {
-    font-size: 15px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
+
 .card-body
 {
     display:flex;
@@ -30,23 +25,20 @@ justify-content: center;
 }
 
 .info-widget {
-    width: 35%;
+    width: 32%;
     display: inline-block;
-    padding: 15px;
+    padding: 8px;
   }
 
-  .middle {
+  /* .middle {
     float: left;
-   
-    overflow-x: hidden;
-    
-    
     white-space: nowrap;
-  }
+  } */
  .bus-card-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
  }
  .floating-btn{
     margin:0px 20px;
@@ -71,12 +63,7 @@ justify-content: center;
     margin-bottom:140px;
    
  }
- .bus-card-container
- {
-    display:flex;
-    flex-wrap:wrap;
-
- }
+ 
  #schedule-content
  {
     background:#00a9ff2e;
@@ -88,8 +75,4 @@ justify-content: center;
    justify-content:space-around;
    margin-top:10px;
  }
- .btnedit
- {
-    background:#2460e0f0;
- }
- 
+

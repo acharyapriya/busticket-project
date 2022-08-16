@@ -1,0 +1,75 @@
+<div class="container bus-card-container ">
+    <div #widgetsContent class="middle">
+        <div class="info-widget" *ngFor="let val of schedulecard">
+            <div  class="card bus-card rounded border-2 mx-4" style="width: 350px;">
+                <div class="card-body "  >
+                    <table class="table table-borderless" disabled="disable">
+                        
+                        <tbody>
+                          <tr>
+                            <th id="schedule-content"scope="row">BusName</th>
+                            <td><input type="text" [(ngModel)]="val.busName" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            
+                            
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">From </th>
+    
+                            <td><input type="text" [(ngModel)]="val.from" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">To</th>
+    
+                            <td><input type="text" [(ngModel)]="val.to" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">Distance</th>
+    
+                            <td><input type="text" [(ngModel)]="val.distance"[disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">Departure Area</th>
+                            <td><input type="text" [(ngModel)]="val.departureArea" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                        
+                          </tr>
+                          <tr>
+                            <th id="schedule-content" scope="row">StartTime</th>
+                            <td><input type="text" [(ngModel)]="val.startingTime" [disabled]="val.scheduleID == sch_id ? 'fasle' : 'true' "></td>
+                        
+                          </tr>
+                          <tr>
+                            <th id="schedule-content" scope="row">Reached Time</th>
+                            <td><input type="text" [(ngModel)]="val.reachTime"[disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                        
+                          </tr>
+                          <tr>
+                            <th  id="schedule-content" scope="row">Fair</th>
+                            <td><input type="text" [(ngModel)]="val.fairPerSeat" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                        
+                          </tr>
+                          <tr>
+                            <th id="schedule-content" scope="row">AvailableStatus</th>
+                            <td><input type="text"   [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "> </td>
+                        
+                          </tr>
+                         
+                        </tbody>
+                        
+                      </table>
+                </div>
+                <div class="btnstyle mb-3">
+                  <button type="button" class="btn btn-primary " (click)="edit_enable(val.scheduleID)" >Edit</button>
+
+                  <button type="button" [class.d-none]="sch_id ? 'false' : 'true'" class="btn btn-success " (click)="update_detail(val.scheduleID)">Update</button>
+              
+                  <button type="button" (click)="schedule_delete(val.scheduleID)" class="btn btn-danger">Delete</button>
+                </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+  
+   
+    
+
