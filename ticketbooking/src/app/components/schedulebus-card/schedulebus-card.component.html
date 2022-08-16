@@ -8,7 +8,7 @@
                         <tbody>
                           <tr>
                             <th id="schedule-content"scope="row">BusName</th>
-                            <td><input type="text" [(ngModel)]="val.busName" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            <td><input type="text"  value="val.busName" #bus_name  [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
                             
                             
                           </tr>
@@ -34,7 +34,7 @@
                           </tr>
                           <tr>
                             <th id="schedule-content" scope="row">StartTime</th>
-                            <td><input type="text" [(ngModel)]="val.startingTime" [disabled]="val.scheduleID == sch_id ? 'fasle' : 'true' "></td>
+                            <td><input type="text" [(ngModel)]="val.startingTime" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
                         
                           </tr>
                           <tr>
@@ -49,7 +49,7 @@
                           </tr>
                           <tr>
                             <th id="schedule-content" scope="row">AvailableStatus</th>
-                            <td><input type="text"   [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "> </td>
+                            <td><input type="text" [(ngModel)]="val.available_status"  [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "> </td>
                         
                           </tr>
                          
@@ -58,9 +58,9 @@
                       </table>
                 </div>
                 <div class="btnstyle mb-3">
-                  <button type="button" class="btn btn-primary " (click)="edit_enable(val.scheduleID)" >Edit</button>
+                  <button type="button" [disabled]="val.scheduleID==sch_id" class="btn btn-primary " (click)="edit_enable(val.scheduleID)" >Edit</button>
 
-                  <button type="button" [class.d-none]="sch_id ? 'false' : 'true'" class="btn btn-success " (click)="update_detail(val.scheduleID)">Update</button>
+                  <button type="button" *ngIf="val.scheduleID==sch_id" class="btn btn-success " (click)="update_detail(val.scheduleID)">Update</button>
               
                   <button type="button" (click)="schedule_delete(val.scheduleID)" class="btn btn-danger">Delete</button>
                 </div>

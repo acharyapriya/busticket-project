@@ -6,7 +6,9 @@ export class Busschedule {
      departureArea   !:String ;
      startingTime   !:Date   ;
      reachTime   !:Date  ;
-     fairPerSeat   !:number 
+     fairPerSeat   !:number;
+     bus_name!:String;
+     available_status!:String;
 
 
 }
