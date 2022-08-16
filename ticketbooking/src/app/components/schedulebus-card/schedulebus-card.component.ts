@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { AdminserviceService } from 'src/app/services/adminservice.service';
@@ -8,20 +9,17 @@ import { AdminserviceService } from 'src/app/services/adminservice.service';
   templateUrl: './schedulebus-card.component.html',
   styleUrls: ['./schedulebus-card.component.css']
 })
-export class SchedulebusCardComponent implements OnInit,AfterViewInit {
+export class SchedulebusCardComponent implements OnInit {
   schedule_enable=true;
   Busschedule=new Busschedule();
-  
+  name!:string
+  ScheduleDetailForm!:FormGroup
   constructor(private adminservice:AdminserviceService, private router_:Router) { }
-  ngAfterViewInit(): void {
-    console.log(this.busName.nativeElement.value);
-
-  }
+  
 schedulecard:any
 
 
-  @ViewChild("bus_name")
-  busName!: ElementRef;
+  
 
 active: string ="active"
 
@@ -51,11 +49,11 @@ active: string ="active"
     this.sch_id = scheduleID
 
   }
-  update_detail(scheduleID:string){
-    this.adminservice.update_schedule(scheduleID,this.schedulecard).subscribe((data)=>{
-      alert("updated")
-      console.log("update")
-        
+  scheduleID!:string;
+  update_detail(val:any){
+    this.adminservice.update_schedule(val.scheduleID,val).subscribe((data)=>{
+      
+      this.router_.navigate(["adminscheduledcard"]).then(()=>{window.location.reload()})
      })
   }
 }

@@ -70,9 +70,12 @@ justify-content: center;
  }
  
  .btnstyle{
-  
    display:flex;
-   justify-content:space-around;
-   margin-top:10px;
+   justify-content:center;
+   align-items: center;
  }
 
+.pwr-btn{
+    border-radius: 50%;
+
+}
