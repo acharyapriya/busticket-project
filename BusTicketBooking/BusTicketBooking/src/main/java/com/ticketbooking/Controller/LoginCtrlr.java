@@ -46,7 +46,7 @@ public class LoginCtrlr {
     public ResponseEntity<?> signup(@PathParam("username") String username,@PathParam("password") String password ) {
     	if(loginservice.LoginINUser(username, password)!= null) {
     	return new ResponseEntity<>( loginservice.LoginINUser(username, password),HttpStatus.OK);
-    }else {
+    }else{
     	return new ResponseEntity<>("USER DOES NOT EXIST, TRY REGISTERING",HttpStatus.INTERNAL_SERVER_ERROR);
     }
     }

@@ -50,9 +50,9 @@ active: string ="active"
 
   }
   scheduleID!:string;
-  update_detail(val:any){
-    this.adminservice.update_schedule(val.scheduleID,val).subscribe((data)=>{
-      
+  update_detail(id:String,val:any){
+    console.log(val)
+    this.adminservice.update_schedule(id,val).subscribe((data)=>{
       this.router_.navigate(["adminscheduledcard"]).then(()=>{window.location.reload()})
      })
   }

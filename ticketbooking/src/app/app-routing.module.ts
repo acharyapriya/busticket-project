@@ -5,7 +5,6 @@ import { AdminOwnercredentialComponent } from './components/admin-ownercredentia
 import { AdminpannelComponent } from './components/adminpannel/adminpannel.component';
 import { BusdetailComponent } from './components/busdetail/busdetail.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { LoginComponent } from './components/login/login.component';
 import { OwnerspannelComponent } from './components/ownerspannel/ownerspannel.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SchedulebusCardComponent } from './components/schedulebus-card/schedulebus-card.component';
@@ -16,7 +15,6 @@ import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
 const routes: Routes = [
   // {path:'',component:QrGeneratorComponent},
   {path:'',component:HomepageComponent},
-  {path:'login',component:LoginComponent},
   {path:'sudoko' ,component:SudokoComponent}, 
 {path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},

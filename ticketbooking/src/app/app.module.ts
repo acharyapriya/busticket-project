@@ -13,7 +13,6 @@ import { BusdetailComponent } from './components/busdetail/busdetail.component';
 import { SchedulebusdetailComponent } from './components/schedulebusdetail/schedulebusdetail.component';
 import { NavabarComponent } from './components/navabar/navabar.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { BuscardlistComponent } from './components/buscardlist/buscardlist.component';
 import { ButttonComponent } from './components/buttton/buttton.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -38,7 +37,6 @@ import { AdminOwnercredentialComponent } from './components/admin-ownercredentia
     SchedulebusdetailComponent,
     NavabarComponent,
     RegisterComponent,
-    LoginComponent,
     BuscardlistComponent,
     ButttonComponent,
     PaymentComponent,

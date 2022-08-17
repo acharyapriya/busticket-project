@@ -100,25 +100,43 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 
   reg=new Login()
   login(){
-    this.credential.loginUser(this.username,this.password).subscribe((data)=>{
-      if(data){
+    // this.credential.loginUser(this.username,this.password).subscribe((data)=>{
+    //   if(data){
+    //     this.router_.navigate([""]).then(()=>{window.location.reload()})
+    //     localStorage.setItem("loginUser",data.name)
+    //     console.log(data.username)
+    //   }else{
+    //     Swal.fire({
+    //       icon: 'error',
+    //       title: 'Oops...',
+    //       text: 'Something went wrong!'
+    //     })
+    //   }
+    // });
+    this.credential.loginUser(this.username,this.password).subscribe({
+      next:(data)=>{
+        if(data){
         this.router_.navigate([""]).then(()=>{window.location.reload()})
         localStorage.setItem("loginUser",data.name)
         console.log(data.username)
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!'
-        })
+      }},
+      error:(err)=>{
+        if(err){
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.error
+          })
+        }
       }
-    });
-    
+    }
+        )
+
   }
 
   submitcredential()
   {
-    
+    console.log(this.reg.password)
    
     this.usercredential.postusercredential(this.reg).subscribe((data)=>{
       localStorage.setItem("loginUser",data.name)
@@ -127,3 +145,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   }
 
 }
+function next(next: any, arg1: any, error: any, arg3: any) {
+  throw new Error('Function not implemented.');
+}
+

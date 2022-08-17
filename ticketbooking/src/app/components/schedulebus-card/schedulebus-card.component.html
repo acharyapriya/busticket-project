@@ -7,7 +7,7 @@
                         <tbody>
                           <tr>
                             <th id="schedule-content"scope="row">BusName</th>
-                            <td><input type="text"  [(ngModel)]="val.busName" value="{{val.busName}}" [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
+                            <td><input type="text"  [(ngModel)]="val.busName"  [disabled]="val.scheduleID == sch_id ? 'false' : 'true' "></td>
                           </tr>
                           <tr>
                             <th  id="schedule-content" scope="row">From </th>
@@ -56,7 +56,7 @@
                 <div class="btnstyle mb-3">
                   <button type="button" [disabled]="val.scheduleID==sch_id" class="btn btn-primary pwr-btn mx-2" (click)="edit_enable(val.scheduleID)" > <i class="fa-solid fa-pen-to-square"></i></button>
 
-                  <button type="button" (click)="update_detail(val)" *ngIf="val.scheduleID==sch_id" class="btn btn-success pwr-btn mx-2" ><i class="fa-solid fa-upload"></i></button>
+                  <button type="button" (click)="update_detail(val.scheduleID,val)" *ngIf="val.scheduleID==sch_id" class="btn btn-success pwr-btn mx-2" ><i class="fa-solid fa-upload"></i></button>
               
                   <button type="button" (click)="schedule_delete(val.scheduleID)" class="btn btn-danger pwr-btn mx-2"><i class="fa-solid fa-trash"></i></button>
                   
