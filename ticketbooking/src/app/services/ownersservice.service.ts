@@ -37,4 +37,10 @@ export class OwnersserviceService {
    return this.http.put<any>(`${this.baseurl}/updatedetail/${id}`,BusDetail)
    
   }
+//////ownwer login
+
+  loginowner(BusName:string,busNo:string):Observable<any>
+  {
+    return this.http.get(`${this.baseurl}/ownerlogin?BusName=${BusName}&busNo=${busNo}`)
+  }
 }

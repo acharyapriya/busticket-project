@@ -99,6 +99,7 @@ public class Bus_Detailservice {
   ////login for owner
   public Bus_Detail busdetail(String BusName,String busNo)
   {
+	  System.out.println(busdetail);
 	  Bus_Detail busdetail=bus_detailrepository.findbus_name(BusName);
 	  if (BCrypt.checkpw(busNo,busdetail.getBusNo())) {
 		  return busdetail;
