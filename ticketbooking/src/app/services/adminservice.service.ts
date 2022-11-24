@@ -36,4 +36,26 @@ export class AdminserviceService {
    return this.http.put<any>(`${this.baseurl}/updateidschedule/${id}`,Busschedule)
    
   }
+
+  adminregigsterdetail(adminlogin:any):Observable<any>
+  {
+
+    return this.http.post<any>(`${this.baseurl}/adminregister`,adminlogin)
+  }
+
+  getadmindetail():Observable<any>
+  {
+    return this.http.get<any>(`${this.baseurl}/getadmin`)
+  }
+
+
+  getbusdetails():Observable<any>
+  {
+    return this.http.get<any>(`${this.baseurl}/buscount`)
+  }
+
+  adminUpdateDetail(id:String,val:any):Observable<any>
+  {
+    return this.http.put<any>(`${this.baseurl}/detailAdminupdate/${id}`,val)
+  }
 }

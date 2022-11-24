@@ -3,6 +3,7 @@ package com.ticketbooking.Controller;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketbooking.Entity.BusSchedule;
+import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Service.BusScheduleService;
 import com.ticketbooking.model.BusCardModel;
+import com.ticketbooking.model.randomModel;
+
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -70,5 +74,20 @@ public class BusScheduleController {
 	    }
 	
 	
+	
+	///random
+	@PostMapping("/randomdata")
+	
+		public BusSchedule randomdatacnrt(@RequestBody BusSchedule randaomdata)
+		{
+			return busscheduleservice.randomdata(randaomdata);
+		}
+		
+		
+		
+		
+		
+		
 	}
+	
 

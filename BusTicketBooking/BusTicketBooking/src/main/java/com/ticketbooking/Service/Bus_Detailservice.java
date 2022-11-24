@@ -2,6 +2,7 @@ package com.ticketbooking.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,30 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
+import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Entity.Bus_Detail;
+import com.ticketbooking.Repository.BusScheduleRepo;
 import com.ticketbooking.Repository.Bus_Detailrepository;
+import com.ticketbooking.Repository.LoginRepo;
+import com.ticketbooking.Repository.TicketBookingRepo;
 import com.ticketbooking.model.BusModel;
+import com.ticketbooking.model.busDetailScheduleMode;
+import com.ticketbooking.model.countDataModel;
 
 @Service
 public class Bus_Detailservice {
   @Autowired
   private Bus_Detailrepository bus_detailrepository;
+  
+  @Autowired
+  private BusScheduleRepo BScheduleRepo;
+  
+  @Autowired
+  private LoginRepo loginrepo;
+  
+  @Autowired
+  private TicketBookingRepo bookingrepo;
+
   
   public Bus_Detail busdetail(Bus_Detail bus_detail)
   {
@@ -99,7 +116,7 @@ public class Bus_Detailservice {
   ////login for owner
   public Bus_Detail busdetail(String BusName,String busNo)
   {
-	  System.out.println(busdetail);
+//	  System.out.println(busdetail);
 	  Bus_Detail busdetail=bus_detailrepository.findbus_name(BusName);
 	  if (BCrypt.checkpw(busNo,busdetail.getBusNo())) {
 		  return busdetail;
@@ -111,4 +128,39 @@ public class Bus_Detailservice {
 	  
   }
   
+  public busDetailScheduleMode bdetailSchedule(String busId)
+  {
+	  Bus_Detail bsdetail= bus_detailrepository.findById(busId).get();
+	  List<BusSchedule>bschedule=BScheduleRepo.findByBusid(busId);
+	  busDetailScheduleMode busdetailModel=new  busDetailScheduleMode();
+	  busdetailModel.setBsdetail(bsdetail);
+	  busdetailModel.setBschedule(bschedule);
+	  return busdetailModel;
+	  
+  }
+  
+  public countDataModel buscounts()
+  {
+	  String busCount=bus_detailrepository.countBusName();
+	  String schedulecount=BScheduleRepo.countBusNames();
+	  String usercount=loginrepo.countUserName();
+	  String bookingcount=bookingrepo.countbooking();
+	  countDataModel cntdata=new countDataModel();
+	  cntdata.setUserNameCount(usercount);
+	  cntdata.setScheduleCount(schedulecount);
+	  cntdata.setTotalBusCount(busCount);
+	  cntdata.setBookedSeatsCount(bookingcount);
+	  return cntdata;
+  }
+  
+  
 }
+
+  
+  
+  
+  
+  
+  
+  
+  

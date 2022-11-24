@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SudokoComponent } from './sudoko.component';
+import { SuperadminregisterComponent } from './superadminregister.component';
 
-describe('SudokoComponent', () => {
-  let component: SudokoComponent;
-  let fixture: ComponentFixture<SudokoComponent>;
+describe('SuperadminregisterComponent', () => {
+  let component: SuperadminregisterComponent;
+  let fixture: ComponentFixture<SuperadminregisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SudokoComponent ]
+      declarations: [ SuperadminregisterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SudokoComponent);
+    fixture = TestBed.createComponent(SuperadminregisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

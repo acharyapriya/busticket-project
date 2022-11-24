@@ -16,8 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { BuscardlistComponent } from './components/buscardlist/buscardlist.component';
 import { ButttonComponent } from './components/buttton/buttton.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { SudokoComponent } from './components/sudoko/sudoko.component';
-import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
+
 // import { QRCodeModule } from 'angularx-qrcode';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -26,6 +25,10 @@ import {  NgxPasswordStrengthMeterModule } from 'ngx-password-strength-meter';
 import { SchedulebusCardComponent } from './components/schedulebus-card/schedulebus-card.component';
 
 import { AdminOwnercredentialComponent } from './components/admin-ownercredential/admin-ownercredential.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { SuperadminregisterComponent } from './components/superadmin-crm/superadminregister.component';
+
 
 
 @NgModule({
@@ -40,17 +43,18 @@ import { AdminOwnercredentialComponent } from './components/admin-ownercredentia
     BuscardlistComponent,
     ButttonComponent,
     PaymentComponent,
-    SudokoComponent,
-    QrGeneratorComponent,
+    
     HomepageComponent,
     SchedulebusCardComponent,
-    AdminOwnercredentialComponent
+    AdminOwnercredentialComponent,
+    SuperadminregisterComponent,
+ 
 ],
   imports: [
    
     BrowserModule,
     AppRoutingModule,ReactiveFormsModule,
-    FormsModule,HttpClientModule,NgxQRCodeModule,NgxPasswordStrengthMeterModule
+    FormsModule,HttpClientModule,NgxQRCodeModule,NgxPasswordStrengthMeterModule, NoopAnimationsModule, MaterialModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

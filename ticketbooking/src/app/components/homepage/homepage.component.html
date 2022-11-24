@@ -1,4 +1,4 @@
-<div class="home-background">
+ <div class="home-background">
    
     <div class="journeysection">
       <div class="profileheader dropdown" >
@@ -50,7 +50,7 @@
   </div>
     </div>
     
-<div class="modal fade login_modal" data-bs-backdrop="static" #modal id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade login_modal" data-bs-backdrop="static"  id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -61,10 +61,10 @@
         <form class="login-form" (ngSubmit)="login()"> 
             <div class="login-fields">
                 <input type="text" class="form-control mb-4" name="username" [(ngModel)]="username"  placeholder="User name"  required>
-                <!-- <div *ngIf="username.errors?.['required']">
+             <!-- <div *ngIf="username.errors?.['required']">
                   <p class="error-msg">this field is required</p>
-                </div> -->
-                <input type="password" class="form-control mb-4" name="password" [(ngModel)]="password" placeholder="Password" required>
+                </div>  -->
+                 <input type="password" class="form-control mb-4" name="password" [(ngModel)]="password" placeholder="Password" required>
             </div>
             <button type="submit" class="btn btn-primary submit_btn">Login</button>
             
@@ -76,7 +76,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+ <div class="modal fade" data-bs-backdrop="static" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -104,7 +104,7 @@
         
       </div>
     </div>
-  </div>
+  </div> 
   
 
   

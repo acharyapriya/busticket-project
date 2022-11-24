@@ -14,19 +14,27 @@ export class SchedulebusCardComponent implements OnInit {
   Busschedule=new Busschedule();
   name!:string
   ScheduleDetailForm!:FormGroup
+  adminData!:any;
+ 
   constructor(private adminservice:AdminserviceService, private router_:Router) { }
   
-schedulecard:any
-
-
+schedulecard:any=[]
+BoolAdminData!:Boolean
   
 
 active: string ="active"
 
   ngOnInit(): void {
+    this.adminData=localStorage.getItem("admprev")
+    // console.log(this.adminid);
+    if(this.adminData.rollbase == "Admin1"){
+      this.BoolAdminData = true;
+    }else{
+      this.BoolAdminData = false
+    }
     this.adminservice.getAllScheduledbs_detail().subscribe((data)=>{
       this.schedulecard=data;
-      
+      console.log(data)
     }
     
     )
@@ -53,7 +61,7 @@ active: string ="active"
   update_detail(id:String,val:any){
     console.log(val)
     this.adminservice.update_schedule(id,val).subscribe((data)=>{
-      this.router_.navigate(["adminscheduledcard"]).then(()=>{window.location.reload()})
+      this.router_.navigate(["admincard"]).then(()=>{window.location.reload()})
      })
   }
 }

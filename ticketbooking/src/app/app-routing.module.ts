@@ -9,21 +9,23 @@ import { OwnerspannelComponent } from './components/ownerspannel/ownerspannel.co
 import { RegisterComponent } from './components/register/register.component';
 import { SchedulebusCardComponent } from './components/schedulebus-card/schedulebus-card.component';
 import { SchedulebusdetailComponent } from './components/schedulebusdetail/schedulebusdetail.component';
-import { SudokoComponent } from './components/sudoko/sudoko.component';
-import { QrGeneratorComponent } from './qr-generator/qr-generator.component';
+import { SuperadminregisterComponent } from './components/superadmin-crm/superadminregister.component';
+
+
 
 const routes: Routes = [
-  // {path:'',component:QrGeneratorComponent},
+  
   {path:'',component:HomepageComponent},
-  {path:'sudoko' ,component:SudokoComponent}, 
+  
 {path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'adminpanel',component:AdminpannelComponent},
 {path:'detail',component:BusdetailComponent},
 {path:'register',component:RegisterComponent},
-{path:'adminscheduledcard',component:SchedulebusCardComponent},
-{path:'schedule_ownercard',component:SchedulebusdetailComponent},
+{path:'admincard',component:SchedulebusCardComponent},
+{path:'ownercard',component:SchedulebusdetailComponent},
 {path:'admin-owner-cre',component:AdminOwnercredentialComponent},
+{path:'superadmin-crm',component:SuperadminregisterComponent},
 
 ];
 @NgModule({

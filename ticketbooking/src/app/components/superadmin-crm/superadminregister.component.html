@@ -1,0 +1,155 @@
+<!-- <div class="registerheader">
+   
+<div class="shadow p-3 mb-5 bg-body rounded adminregister">
+  
+    <form class="adminform" (ngSubmit)="adminreg()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">ADMIN NAME</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+         
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">ADMIN PASSWORD</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">ROLL </label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          
+        
+        <button type="submit" class="btn btn-primary">REGISTER</button>
+      </form>
+  </div>
+</div> -->
+<hr />
+<div class="resource-container">
+  <h2 class="resource-header"><b>RESOURCE-MANAGEMENT</b></h2>
+ 
+  <a
+    class="btn btn-primary resourceheader"
+    data-bs-toggle="offcanvas"
+    href="#offcanvasExample"
+    role="button"
+    aria-controls="offcanvasExample"
+  >
+    ADD-RESOURCES
+  </a>
+
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel"
+  >
+    <div class="offcanvas-header">
+      <h3>Add resources</h3>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <form class="adminform" (ngSubmit)="adminreg()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">ADMIN NAME</label>
+          <input
+            type="email"
+            class="form-control"
+            name="adminname"
+            [(ngModel)]="adminlogin.adminname"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >ADMIN PASSWORD</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            name="adminpassword"
+            [(ngModel)]="adminlogin.adminpassword"
+            id="exampleInputPassword1"
+          />
+        </div>
+        <div class="dropdown mt-3">
+          <select
+            name="cars"
+            id="cars"
+            name="rollbase"
+            [(ngModel)]="adminlogin.rollbase"
+            class="form-control"
+          >
+            <option value="Admin-Rw">Admin-Rw</option>
+            <option value="Admin-R">Admin-R</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">ADD</button>
+      </form>
+    </div>
+  </div>
+  <div class="carddetails">
+  <div class="card"  style="width: 10rem;height:100px;">USER
+    <div class="card-body">
+      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.userNameCount}}</b></h5>
+     
+    </div>
+  </div>
+  <div class="card" style="width: 10rem;height:100px;">BUS
+    <div class="card-body">
+      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.totalBusCount}}</b></h5>
+    
+    </div>
+  </div>
+  <div class="card" style="width: 10rem;height:100px;">SCHEDULES
+    <div class="card-body">
+      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.scheduleCount}}</b></h5>
+    </div>
+  </div>
+  <div class="card" style="width: 10rem;height:100px;">BOOKING
+    <div class="card-body">
+      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.bookedSeatsCount}}</b></h5>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="table-content">
+  <table class="table table-hover" >
+
+    <thead>
+      <tr>
+        <th scope="col">SNO</th>
+        <th scope="col">ADMINNAME</th>
+        <th scope="col">ROLEBASE</th>
+        <th scope="col">OPTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let val of adminresources let i = index" >
+        <th scope="row">{{i+1}}</th>
+       
+        <td><input type="text" [(ngModel)]="val.adminname" [disabled]="val.adminid==checkAdminId?'false':true">  </td>
+        <td><input type="text" [(ngModel)]="val.rollbase"  [disabled]="val.adminid==checkAdminId?'false':true"></td>
+        <div class="tables">
+        <td> <button type="button"  class="btn btn-primary pwr-btn mx-2" (click)="adminDetailEdit(val.adminid)"> <i class="fa-solid fa-pen-to-square"></i></button>
+          <button type="button"class="btn btn-success pwr-btn mx-2"  (click)="adminDetailUpload(val.adminid,val)" *ngIf="val.adminid==checkAdminId " ><i class="fa-solid fa-upload"></i></button>
+        </td>
+       
+        <td><button type="button" class="btn btn-danger pwr-btn mx-2" ><i class="fa-solid fa-trash"></i></button></td>
+      </div>
+      </tr>
+     
+      
+    </tbody>
+  </table>
+</div>
+</div>

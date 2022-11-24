@@ -2,13 +2,18 @@ package com.ticketbooking.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 import java.util.UUID;
 
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner;
 import org.springframework.stereotype.Service;
 
 import com.ticketbooking.Entity.BusSchedule;
@@ -16,6 +21,9 @@ import com.ticketbooking.Entity.Bus_Detail;
 import com.ticketbooking.Repository.BusScheduleRepo;
 import com.ticketbooking.Repository.Bus_Detailrepository;
 import com.ticketbooking.model.BusCardModel;
+import com.ticketbooking.model.BusModel;
+import com.ticketbooking.model.randomModel;
+
 
 @Service
 public class BusScheduleService {
@@ -25,12 +33,13 @@ public class BusScheduleService {
    @Autowired
   private Bus_Detailrepository bus_detailrepository;
    
-   public BusSchedule scheduledetails(BusSchedule busschedule )
+   public BusSchedule scheduledetails(BusSchedule busschedule)
    {
 	   BusSchedule NewScheduledBus = new BusSchedule();
 	   Bus_Detail bus_detail=bus_detailrepository.findById(busschedule.getBusId()).get();
+	  System.out.print(bus_detail.getBusId());
 	   NewScheduledBus.setScheduleID(UUID.randomUUID().toString());
-	   NewScheduledBus.setBusId(busschedule.getBusId());
+	   NewScheduledBus.setBusId(bus_detail.getBusId());
 	   NewScheduledBus.setBusName(bus_detail.getBusName());
 	   NewScheduledBus.setNoOfSeats(bus_detail.getNoOfSeats());
 	   NewScheduledBus.setDepartureArea(busschedule.getDepartureArea());
@@ -40,10 +49,12 @@ public class BusScheduleService {
 	   NewScheduledBus.setFairPerSeat(busschedule.getFairPerSeat());
 	   NewScheduledBus.setReachTime(busschedule.getReachTime());
 	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
+	   NewScheduledBus.setAvailable_status("availableseats");
+	   
 	   System.out.println(busschedule.getStartingTime()); 
 	   
 	   Date date = new Date(); 
-	   System.out.println(date.getTime());
+	  // System.out.println(date.getTime());
 
 	   return busschedulerepo.save(NewScheduledBus);
 	    
@@ -83,13 +94,13 @@ public class BusScheduleService {
    public BusSchedule updateschedule(BusSchedule busschedule,String scheduleID)
    {
 	   BusSchedule scheduledetails=busschedulerepo.findById(scheduleID).get();
-	   scheduledetails.setDepartureArea(busschedule.getDepartureArea());
-	   scheduledetails.setFrom(busschedule.getFrom());
-	   scheduledetails.setTo(busschedule.getTo());
-	   scheduledetails.setNoOfSeats(busschedule.getNoOfSeats());
-	   scheduledetails.setStartingTime(busschedule.getStartingTime());
-	   scheduledetails.setReachTime(busschedule.getReachTime());
-	   scheduledetails.setFairPerSeat(busschedule.getFairPerSeat());
+//	   scheduledetails.setDepartureArea(busschedule.getDepartureArea());
+//	   scheduledetails.setFrom(busschedule.getFrom());
+//	   scheduledetails.setTo(busschedule.getTo());
+//	   scheduledetails.setNoOfSeats(busschedule.getNoOfSeats());
+//	   scheduledetails.setStartingTime(busschedule.getStartingTime());
+//	   scheduledetails.setReachTime(busschedule.getReachTime());
+//	   scheduledetails.setFairPerSeat(busschedule.getFairPerSeat());
 	   scheduledetails.setAvailable_status(busschedule.getAvailable_status());
 	   return busschedulerepo.save(scheduledetails);
  }
@@ -105,8 +116,10 @@ public class BusScheduleService {
 	   
 	   for (BusSchedule ScheduledBus: ListOfBusScheduled) {
 		   Bus_Detail bsdetail= bus_detailrepository.findById(ScheduledBus.getBusId()).get();
+		  
 		   BusCardModel cardModel = new BusCardModel();
 		   cardModel.setScheduleID(ScheduledBus.getScheduleID());
+		  
 		   cardModel.setBookedSeats(ScheduledBus.getBookedSeats());
 		   cardModel.setBusName(ScheduledBus.getBusName());
 		   cardModel.setDepartureArea(ScheduledBus.getDepartureArea());
@@ -126,6 +139,58 @@ public class BusScheduleService {
 	   
    }
    
+   
+   
+  public BusSchedule randomdata(BusSchedule scheduleData)
+  {
+	  Bus_Detail bus_detail=bus_detailrepository.findById(scheduleData.getBusId()).get();
+	  scheduleData.setScheduleID(UUID.randomUUID().toString());
+	  scheduleData.setBusId(bus_detail.getBusId());
+	  scheduleData.setBusName(bus_detail.getBusName());
+	  String[] from = {"chennai","pondy","madurai","kanchi"};
+		String[] to = {"andhra","vellore","trichy","tirelveli"};
+		//String[]busName= {"jino","ups","sripriyatravels","agiotravels","hellentravels"};
+		String[]departureArea= {"cmbt","newbusstand","dhanksha","norway","jetland"};
+		int[]noOfSeats= {60,50,80,70,50,40};
+		int[]fairPerSeats= {600,500,800,700,500,400};
+		
+		 Random rand = new Random();
+		   String fromData=from[rand.nextInt(from.length)];
+		   String toData=to[rand.nextInt(to.length)];
+		   String departureData=departureArea[rand.nextInt(departureArea.length)];
+		   int seatsData=noOfSeats[rand.nextInt(noOfSeats.length)];
+		   int fairData=fairPerSeats[rand.nextInt(fairPerSeats.length)];
+		   scheduleData.setFrom(fromData);
+		   scheduleData.setTo(toData);
+		   scheduleData.setDepartureArea(departureData);
+		   scheduleData.setNoOfSeats(seatsData);
+		   scheduleData.setFairPerSeat(fairData);
+		
+		   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		   LocalDateTime now = LocalDateTime.now();
+		   scheduleData.setStartingTime(now);
+		   
+	    	DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		   LocalDateTime now2 = LocalDateTime.now().plusHours(9);
+		   scheduleData.setReachTime(now2);
+	
+		   System.out.println(scheduleData);
+		   System.out.println("nm");
+		   return busschedulerepo.save(scheduleData);
+	
+		
+		   
+	    
+	  
+  }
+
+
 
    
+   
+   
+   
+   
+   
+  
 }
