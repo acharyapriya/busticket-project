@@ -58,4 +58,10 @@ export class AdminserviceService {
   {
     return this.http.put<any>(`${this.baseurl}/detailAdminupdate/${id}`,val)
   }
+
+
+  getcsvreport():Observable<any>
+  {
+    return this.http.get<any>(`${this.baseurl}/csvexport`)
+  }
 }

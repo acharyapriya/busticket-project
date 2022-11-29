@@ -23,6 +23,8 @@
                 <option  *ngFor="let val of ToOptions"  [value]="val">{{val}}</option>
               </select>
               </div>
+
+              <button (click)="csvfile()">link text</button>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">DISTANCE</label>
             <input type="text" #distance="ngModel" name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" required placeholder="Distance">

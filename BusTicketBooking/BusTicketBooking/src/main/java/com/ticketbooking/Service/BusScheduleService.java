@@ -1,5 +1,7 @@
 package com.ticketbooking.Service;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -11,6 +13,8 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.batch.JobLauncherApplicationRunner;
@@ -23,6 +27,8 @@ import com.ticketbooking.Repository.Bus_Detailrepository;
 import com.ticketbooking.model.BusCardModel;
 import com.ticketbooking.model.BusModel;
 import com.ticketbooking.model.randomModel;
+
+import ch.qos.logback.classic.Logger;
 
 
 @Service
@@ -149,7 +155,6 @@ public class BusScheduleService {
 	  scheduleData.setBusName(bus_detail.getBusName());
 	  String[] from = {"chennai","pondy","madurai","kanchi"};
 		String[] to = {"andhra","vellore","trichy","tirelveli"};
-		//String[]busName= {"jino","ups","sripriyatravels","agiotravels","hellentravels"};
 		String[]departureArea= {"cmbt","newbusstand","dhanksha","norway","jetland"};
 		int[]noOfSeats= {60,50,80,70,50,40};
 		int[]fairPerSeats= {600,500,800,700,500,400};
@@ -177,20 +182,26 @@ public class BusScheduleService {
 		   System.out.println(scheduleData);
 		   System.out.println("nm");
 		   return busschedulerepo.save(scheduleData);
-	
-		
-		   
-	    
+    
 	  
   }
+  
+  ////////csvexport
+  
+  public List<BusSchedule>csvExport()
+  {
+	  
+//	  List<BusSchedule> bschedule=busschedulerepo.getcsvreport();
+	  
+//	  System.out.println(startingTime);
+//	  System.out.println(reachTime);
+//	return bschedule;
+	
+	  
+	  return busschedulerepo.findAll();
+  }
+  
 
-
-
-   
-   
-   
-   
-   
-   
+ 
   
 }

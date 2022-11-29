@@ -39,7 +39,7 @@ public class Bus_Detailservice {
   {
 	  bus_detail.setBusId(UUID.randomUUID().toString());
 	  bus_detail.setCoverage(bus_detail.getCoverage().toLowerCase());
-	  
+	 
 	  
 	  return bus_detailrepository.save(bus_detail);
   }

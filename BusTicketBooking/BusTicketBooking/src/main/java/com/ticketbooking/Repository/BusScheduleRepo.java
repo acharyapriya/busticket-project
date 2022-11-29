@@ -1,5 +1,6 @@
 package com.ticketbooking.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,6 +25,12 @@ public interface BusScheduleRepo extends JpaRepository<BusSchedule, String> {
 	
 	 @Query("select count(scheduleid) from BusSchedule bsdetail")
 	 String countBusNames();
+	 
+	 
+//	csv
+//	 @Query("select timing from BusSchedule timing where cast(timing.startingTime as date = cast(:date as date) and cast(timing.reachTime as date=cast(:date as date")
+//	 List<BusSchedule>getcsvreport(@Param("startingTime")LocalDateTime startingTime, @Param("reachTime")LocalDateTime reachTime);
+	 
 }
 
 

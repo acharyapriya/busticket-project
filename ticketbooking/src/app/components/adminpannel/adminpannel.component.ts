@@ -73,4 +73,12 @@ export class AdminpannelComponent implements OnInit {
       }
     }
   }
+
+
+  csvfile()
+  {
+    this.Adminservice.getcsvreport().subscribe((data)=>{
+      alert("dowloaded")
+    })
+  }
 }
