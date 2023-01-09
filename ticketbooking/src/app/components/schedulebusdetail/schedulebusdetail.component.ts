@@ -4,6 +4,7 @@ import { AfterViewInit,Component, Input, OnInit, ViewChild } from '@angular/core
 
 
 import {MatPaginator} from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { OwnerdetailserviceService } from 'src/app/ownerdetailservice.service';
@@ -13,17 +14,18 @@ import { OwnersserviceService } from 'src/app/services/ownersservice.service';
   templateUrl: './schedulebusdetail.component.html',
   styleUrls: ['./schedulebusdetail.component.css']
 })
-export class SchedulebusdetailComponent implements OnInit, AfterViewInit {
+export class SchedulebusdetailComponent implements OnInit {
   from!:String
   displayedColumns: string[] = ['Startingdate', 'name', 'weight', 'symbol','bookedseats'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  
   schedulebusdetail: any;
   available=new Busschedule();
  
-  // Busdetail: any;
   busId!: any;
   adminname!: any ;
   adminPassword!: string;
@@ -33,23 +35,33 @@ export class SchedulebusdetailComponent implements OnInit, AfterViewInit {
   BusDetail:any=[]
   BusSchedules:any=[]
   available_status!: String;
+  seatsBoolean!:boolean;
+ 
+  colorStatus!:boolean;
+
+
    constructor(private ownerservice:OwnerdetailserviceService) { }
+
   ngOnInit(): void {
   
     this.busId=localStorage.getItem("travels")
     console.log(this.busId);
    this.ownerservice.Finddetailbyname(this.busId).subscribe((data)=>{
-      console.log(data)
-      this.BusDetail = data.bsdetail
-      this.BusSchedules = data.bschedule
+    this.BusDetail = data.bsdetail
+  
+      this.dataSource = new MatTableDataSource(data.bschedule) 
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
   
   })
  }
+ applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-      
-  }
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+}
+
+
 
   checkid!:String;
   statuscheck(scheduleID:any)
@@ -60,27 +72,20 @@ export class SchedulebusdetailComponent implements OnInit, AfterViewInit {
 
   uploadcheck!:string;
   statusupload(scheduleID:any,element:any)
+
   {
-   
+  element.available_status = "Seats Full" 
    this.ownerservice.ownerbusdetail_status(scheduleID,element).subscribe((data)=>{
-    alert("uodate")
+    alert("updated successfully")
     this.uploadcheck=scheduleID;
    
    })
+
+  
   }
+
   
 
 
 }
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  bookedseats:String;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H',bookedseats:'0'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He',bookedseats:'0'},
 
-];

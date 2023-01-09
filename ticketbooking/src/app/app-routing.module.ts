@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdminOwnercredentialComponent } from './components/admin-ownercredential/admin-ownercredential.component';
 import { AdminpannelComponent } from './components/adminpannel/adminpannel.component';
-import { BusdetailComponent } from './components/busdetail/busdetail.component';
+
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { OwnerspannelComponent } from './components/ownerspannel/ownerspannel.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
 {path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'adminpanel',component:AdminpannelComponent},
-{path:'detail',component:BusdetailComponent},
+
 {path:'register',component:RegisterComponent},
 {path:'admincard',component:SchedulebusCardComponent},
 {path:'ownercard',component:SchedulebusdetailComponent},

@@ -55,7 +55,7 @@ public class BusScheduleService {
 	   NewScheduledBus.setFairPerSeat(busschedule.getFairPerSeat());
 	   NewScheduledBus.setReachTime(busschedule.getReachTime());
 	   NewScheduledBus.setStartingTime(busschedule.getStartingTime());
-	   NewScheduledBus.setAvailable_status("availableseats");
+	   NewScheduledBus.setAvailable_status("available seats");
 	   
 	   System.out.println(busschedule.getStartingTime()); 
 	   
@@ -188,19 +188,26 @@ public class BusScheduleService {
   
   ////////csvexport
   
-  public List<BusSchedule>csvExport()
-  {
-	  
-//	  List<BusSchedule> bschedule=busschedulerepo.getcsvreport();
-	  
-//	  System.out.println(startingTime);
-//	  System.out.println(reachTime);
-//	return bschedule;
-	
-	  
-	  return busschedulerepo.findAll();
-  }
+//  public List<BusSchedule>csvExport()
+//  {
+//	  
+////	  List<BusSchedule> bschedule=busschedulerepo.getcsvreport();
+//	  
+////	  System.out.println(startingTime);
+////	  System.out.println(reachTime);
+////	return bschedule;
+//	
+//	  
+//	  return busschedulerepo.findAll();
+//  }
+//  
   
+  
+  
+  public List<BusSchedule> excelExportSchedule(String date1,String date2)
+  {
+	  return busschedulerepo.getcsvreport(date1, date2);
+  }
 
  
   

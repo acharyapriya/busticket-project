@@ -27,7 +27,7 @@ active: string ="active"
   ngOnInit(): void {
     this.adminData=localStorage.getItem("admprev")
     // console.log(this.adminid);
-    if(this.adminData.rollbase == "Admin1"){
+    if(this.adminData.rollbase == "Admin-R"){
       this.BoolAdminData = true;
     }else{
       this.BoolAdminData = false

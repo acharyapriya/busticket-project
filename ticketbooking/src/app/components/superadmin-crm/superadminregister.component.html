@@ -1,40 +1,47 @@
-<!-- <div class="registerheader">
-   
-<div class="shadow p-3 mb-5 bg-body rounded adminregister">
-  
-    <form class="adminform" (ngSubmit)="adminreg()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">ADMIN NAME</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-         
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">ADMIN PASSWORD</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">ROLL </label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          
-        
-        <button type="submit" class="btn btn-primary">REGISTER</button>
-      </form>
-  </div>
-</div> -->
-<hr />
-<div class="resource-container">
-  <h2 class="resource-header"><b>RESOURCE-MANAGEMENT</b></h2>
+<div class=" resource">
+<!-- <nav class="navbar navbar-dark ">
+ <h1 class="text-center">Resource Managment</h1>
+</nav> -->
+<div class="container">
  
+<div class="resource-header">
   <a
-    class="btn btn-primary resourceheader"
+    class="btn resource-add-btn "
     data-bs-toggle="offcanvas"
     href="#offcanvasExample"
     role="button"
     aria-controls="offcanvasExample"
   >
-    ADD-RESOURCES
+    Add Resourse
   </a>
+
+  <div class="exportdatas-header">
+    <form (ngSubmit)="getexportvalues()">
+      <div class="exportdatas">
+     <b>StartDate:</b>
+          <input
+            type="date"
+            [(ngModel)]="StartDate"
+            class="datepicking"
+            name="StartDate"
+          />
+        <b>ReachDate:</b> 
+          <input
+            type="date"
+            [(ngModel)]="ReachDate"
+            class="datepicking"
+            name="ReachDate"
+          />
+      
+        <div class="export-btn">
+          <i class="fas fa-file-export export-icon"></i>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+  
 
   <div
     class="offcanvas offcanvas-start"
@@ -43,7 +50,7 @@
     aria-labelledby="offcanvasExampleLabel"
   >
     <div class="offcanvas-header">
-      <h3>Add resources</h3>
+      
       <button
         type="button"
         class="btn-close"
@@ -52,104 +59,149 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <form class="adminform" (ngSubmit)="adminreg()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">ADMIN NAME</label>
-          <input
-            type="email"
-            class="form-control"
-            name="adminname"
-            [(ngModel)]="adminlogin.adminname"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"
-            >ADMIN PASSWORD</label
-          >
-          <input
-            type="password"
-            class="form-control"
-            name="adminpassword"
-            [(ngModel)]="adminlogin.adminpassword"
-            id="exampleInputPassword1"
-          />
-        </div>
-        <div class="dropdown mt-3">
-          <select
-            name="cars"
-            id="cars"
-            name="rollbase"
-            [(ngModel)]="adminlogin.rollbase"
-            class="form-control"
-          >
-            <option value="Admin-Rw">Admin-Rw</option>
-            <option value="Admin-R">Admin-R</option>
-          </select>
-        </div>
+      <form class="adminForm example-form " (ngSubmit)="adminreg()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Admin Name</mat-label>
+          <input matInput placeholder="Admin Name"   type="email"
+          
+          name="adminname"
+          
+         >
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Admin Password</mat-label>
+          <input matInput placeholder="Admin Password" type="password"
+          
+          name="adminname"
+         
+         >
+        </mat-form-field>
+      
+      
+        
+        
 
-        <button type="submit" class="btn btn-primary">ADD</button>
+<mat-form-field class="example-full-width">
+
+  <mat-label>Roll Base</mat-label>
+  <select matNativeControl required  placeholder="Admin Password">
+    <option value="volvo">Roll Base</option>
+    <option value="volvo">Admin-Rw</option>
+    <option value="saab">Admin-R</option>
+    
+  </select>
+</mat-form-field>
+
+        <button type="submit" class="btn addResourceBtn">ADD</button>
       </form>
     </div>
   </div>
-  <div class="carddetails">
-  <div class="card"  style="width: 10rem;height:100px;">USER
-    <div class="card-body">
-      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.userNameCount}}</b></h5>
-     
-    </div>
-  </div>
-  <div class="card" style="width: 10rem;height:100px;">BUS
-    <div class="card-body">
-      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.totalBusCount}}</b></h5>
-    
-    </div>
-  </div>
-  <div class="card" style="width: 10rem;height:100px;">SCHEDULES
-    <div class="card-body">
-      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.scheduleCount}}</b></h5>
-    </div>
-  </div>
-  <div class="card" style="width: 10rem;height:100px;">BOOKING
-    <div class="card-body">
-      <h5 class="card-title shadow p-3 mb-5 bg-white rounded"><b>{{busdetail.bookedSeatsCount}}</b></h5>
-      
-    </div>
-  </div>
-</div>
+  <!-- card -->
 
-
-
-
-<div class="table-content">
-  <table class="table table-hover" >
-
-    <thead>
-      <tr>
-        <th scope="col">SNO</th>
-        <th scope="col">ADMINNAME</th>
-        <th scope="col">ROLEBASE</th>
-        <th scope="col">OPTION</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let val of adminresources let i = index" >
-        <th scope="row">{{i+1}}</th>
-       
-        <td><input type="text" [(ngModel)]="val.adminname" [disabled]="val.adminid==checkAdminId?'false':true">  </td>
-        <td><input type="text" [(ngModel)]="val.rollbase"  [disabled]="val.adminid==checkAdminId?'false':true"></td>
-        <div class="tables">
-        <td> <button type="button"  class="btn btn-primary pwr-btn mx-2" (click)="adminDetailEdit(val.adminid)"> <i class="fa-solid fa-pen-to-square"></i></button>
-          <button type="button"class="btn btn-success pwr-btn mx-2"  (click)="adminDetailUpload(val.adminid,val)" *ngIf="val.adminid==checkAdminId " ><i class="fa-solid fa-upload"></i></button>
-        </td>
-       
-        <td><button type="button" class="btn btn-danger pwr-btn mx-2" ><i class="fa-solid fa-trash"></i></button></td>
+  <div class="count-bar container mb-5">
+    <div class="count shadow">
+      <div>
+        <h1>{{ busdetail.userNameCount }}</h1>
+        <p>User</p>
       </div>
-      </tr>
-     
+    </div>
+    <div class="count shadow">
+      <div>
+        <h1>{{ busdetail.totalBusCount }}</h1>
+        <p>Bus</p>
+      </div>
+    </div>
+    <div class="count shadow">
+      <div>
+        <h1>{{ busdetail.scheduleCount }}</h1>
+        <p>Schedules</p>
+      </div>
+    </div>
+    <div class="count shadow">
+      <div>
+        <h1>{{ busdetail.bookedSeatsCount }}</h1>
+        <p>Bookings</p>
+      </div>
+    </div>
+  </div>
+
+   
+
+  <mat-form-field appearance="standard">
+   
+    <input matInput (keyup)="applyFilter($event)"  #input>
+  </mat-form-field>
+  <div class="mat-elevation-z8 table-content">
+    <table class="table-content1" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="SNO">
+        <th mat-header-cell *matHeaderCellDef class="table-header">
+          SNO
+        </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          {{ i + 1 }}
+          
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="AdminName">
+        <th mat-header-cell *matHeaderCellDef class="table-header">
+          AdminName
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <input type="text" class="input-column" [(ngModel)]="element.adminname" [disabled]="element.adminid==checkAdminId?'false':true">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="RollBase">
+        <th mat-header-cell *matHeaderCellDef class="table-header">
+          RollBase
+        </th>
+        <td class="table-data" mat-cell *matCellDef="let element">
+          <input type="text"  class="input-column" [(ngModel)]="element.rollbase" [disabled]="element.adminid==checkAdminId?'false':true">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Option">
+        <th mat-header-cell *matHeaderCellDef class="table-header">Option</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+          type="button"
+          class="btn editBtn pwr-btn mx-2"
+          (click)="adminDetailEdit(element.adminid)"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button
+          type="button"
+          class="btn editBtn  pwr-btn mx-2"
+          (click)="adminDetailUpload(element.adminid, element)"
+          *ngIf="element.adminid == checkAdminId"
+        >
+          <i class="fa-solid fa-upload"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger pwr-btn mx-2">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        </td>
+      </ng-container>
+
       
-    </tbody>
-  </table>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+     
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
 </div>
+
+
 </div>
+

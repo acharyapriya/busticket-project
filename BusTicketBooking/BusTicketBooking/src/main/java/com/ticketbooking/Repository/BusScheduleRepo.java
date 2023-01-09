@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ticketbooking.Entity.BusSchedule;
@@ -27,10 +28,12 @@ public interface BusScheduleRepo extends JpaRepository<BusSchedule, String> {
 	 String countBusNames();
 	 
 	 
-//	csv
-//	 @Query("select timing from BusSchedule timing where cast(timing.startingTime as date = cast(:date as date) and cast(timing.reachTime as date=cast(:date as date")
-//	 List<BusSchedule>getcsvreport(@Param("startingTime")LocalDateTime startingTime, @Param("reachTime")LocalDateTime reachTime);
+//////	excel export
+	 @Query("select timing from BusSchedule timing where cast(timing.startingTime as date) = cast(:StartDate as date) and cast(timing.reachTime as date) = cast(:ReachDate as date)")
+	 List<BusSchedule> getcsvreport(@Param("StartDate") String Start,@Param("ReachDate") String Reach);
+	
 	 
-}
 
+
+}
 

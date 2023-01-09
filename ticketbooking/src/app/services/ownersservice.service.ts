@@ -43,4 +43,12 @@ export class OwnersserviceService {
   {
     return this.http.get(`${this.baseurl}/ownerlogin?BusName=${BusName}&busNo=${busNo}`)
   }
+
+
+ 
+
+  exportAsExcelFile0():Observable<any>{
+    return this.http.get<any>(`${this.baseurl}/getbusschedule`)
+  }
+
 }

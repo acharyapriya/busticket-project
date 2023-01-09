@@ -144,6 +144,9 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     })
   }
 
+
+  
+
 }
 function next(next: any, arg1: any, error: any, arg3: any) {
   throw new Error('Function not implemented.');

@@ -25,7 +25,7 @@ justify-content: center;
 }
 
 .info-widget {
-    width: 32%;
+    width: 350px;
     display: inline-block;
     padding: 8px;
   }
@@ -34,12 +34,13 @@ justify-content: center;
     float: left;
     white-space: nowrap;
   } */
- .bus-card-container{
+ /* .bus-card-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
- }
+    width: 100%;
+ } */
  .floating-btn{
     margin:0px 20px;
     background-color: rgb(223, 223, 223);
@@ -78,4 +79,12 @@ justify-content: center;
 .pwr-btn{
     border-radius: 50%;
 
+}
+.middle
+{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
 }

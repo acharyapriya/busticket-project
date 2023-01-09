@@ -1,5 +1,5 @@
 <div class="container-fluid bus_schedule">
-<div class="container  w-50 busentryBox">
+<div class="busentryBox">
     <h1 class="header">BUS SCHEDULE</h1>
     <form (ngSubmit)="onsubmit()" >
         <div class="mb-1">
@@ -9,6 +9,7 @@
             <option *ngFor="let value of allbusdetail" [value]="value.busId">{{value.busName}}</option>
           </select>
           </div>
+          
           <div class="mb-1">
             <label for="bus">From</label>
             <select class="form-select" name="from" (ngModelChange)="changeOfOptions($event)"  [(ngModel)]="bschedule.from" aria-label="Default select example">
@@ -16,16 +17,19 @@
               <option  *ngFor="let val of specificBusdetail" [value]="val">{{val}}</option>
             </select>
             </div>
-            <label for="bus">To</label>
+           
             <div class="mb-1">
-              <select class="form-select" name="from"  [(ngModel)]="bschedule.to" aria-label="Default select example">
+              <label for="bus">To</label>
+              <select class="form-select" name="to"  [(ngModel)]="bschedule.to" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option  *ngFor="let val of ToOptions"  [value]="val">{{val}}</option>
               </select>
               </div>
-
-              <button (click)="csvfile()">link text</button>
-          <div class="mb-3">
+           
+              
+          
+           
+              <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">DISTANCE</label>
             <input type="text" #distance="ngModel" name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" required placeholder="Distance">
             <div *ngIf="distance.errors?.['required']">
@@ -39,6 +43,8 @@
               <p class="error-msg">this field is required</p>
             </div>
           </div>
+       
+        
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">STARTING TIME</label>
           <input type = "datetime-local" [min]="currentdate| date:'yyyy-MM-ddThh:mm'" [(ngModel)]="bschedule.startingTime" required  class="form-control" name = "startingtime">
@@ -48,6 +54,7 @@
             <label for="exampleFormControlInput1" class="form-label">ENDING TIME</label>
           <input type = "datetime-local" [min]="currentdate| date:'yyyy-MM-ddThh:mm'"  [(ngModel)]="bschedule.reachTime" required class="form-control" name = "reachedtime"> 
         </div>
+     
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">FAIR PER SEATS</label>
             <input type="text" #fps="ngModel" name="fairPerSeat" [(ngModel)]="bschedule.fairPerSeat" class="form-control" required id="exampleFormControlInput1" placeholder="Fair">
@@ -57,6 +64,9 @@
           </div>
           <button type="submit" class="btn btn-primary submit-btn">Submit</button>
     </form>
+
+
+   
 </div>
 </div>
 

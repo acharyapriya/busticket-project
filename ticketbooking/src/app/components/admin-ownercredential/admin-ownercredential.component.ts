@@ -17,6 +17,7 @@ export class AdminOwnercredentialComponent implements OnInit {
   adminname!:string ;
   adminpassword!:string;
   owner="Owner";
+  error!:string;
   // showFiller = false;
   
 
@@ -33,12 +34,12 @@ export class AdminOwnercredentialComponent implements OnInit {
         this.router_.navigate(["/ownercard"]).then(()=>{window.location.reload()})
         
      }
-     else if(data.rollbase=="Adminrw")
+     else if(data.rollbase=="Admin-Rw")
      {
       localStorage.setItem("admprev",data)
         this.router_.navigate(["/admincard"]).then(()=>{window.location.reload()})
       }
-      else if(data.rollbase=="Admin1")
+      else if(data.rollbase=="Admin-R")
      {
       localStorage.setItem("admprev",data)
         this.router_.navigate(["/admincard"]).then(()=>{window.location.reload()})

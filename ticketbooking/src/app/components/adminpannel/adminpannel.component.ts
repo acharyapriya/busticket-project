@@ -5,6 +5,7 @@ import { OwnerspannelComponent } from '../ownerspannel/ownerspannel.component';
 import { OwnersserviceService } from 'src/app/services/ownersservice.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-adminpannel',
@@ -12,11 +13,19 @@ import Swal from 'sweetalert2';
   styleUrls: ['./adminpannel.component.css'],
 })
 export class AdminpannelComponent implements OnInit {
+  excelreport: any;
+  
+  reachTime!:String;
+  StartingTime!:String;
   constructor(
     private Adminservice: AdminserviceService,
     private ownerservice: OwnersserviceService,
     private datepipe: DatePipe
-  ) {}
+  ) {
+
+
+   
+  }
   bschedule = new Busschedule();
   allbusdetail: any = [];
   currentdate = new Date();
@@ -27,6 +36,25 @@ export class AdminpannelComponent implements OnInit {
   error!:string;
   Fielddate!:any
   current_date!:any
+
+
+
+
+  data: any = [{
+    eid: 'e101',
+    ename: 'ravi',
+    esal: 1000
+    },{
+    eid: 'e102',
+    ename: 'ram',
+    esal: 2000
+    },{
+    eid: 'e103',
+    ename: 'rajesh',
+    esal: 3000
+    }];
+
+   
 
   ngOnInit(): void {
     this.getallbusdetail()
@@ -75,10 +103,12 @@ export class AdminpannelComponent implements OnInit {
   }
 
 
-  csvfile()
-  {
-    this.Adminservice.getcsvreport().subscribe((data)=>{
-      alert("dowloaded")
-    })
-  }
+
+
+  
+ 
+
+
 }
+
+

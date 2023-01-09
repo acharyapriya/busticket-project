@@ -1,185 +1,22 @@
-/* .card-body-sec div {
-    font-size: 15px;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.card-body
+.ownerContainer
 {
-    display:flex;
-    padding:0px!important;
-}
-.seat-count{
-    display: inline;
-}
-.slash{
-    font-size: 25px;
-}
-.avail-seat{
-    color: rgb(0, 148, 0);
-}
-.booking-btn{
-    position: relative;
-width: 100%;
-display: flex;
-justify-content: center;
-}
-.bus-card:hover{
-    transform: scale(1.005);
-    box-shadow: 0 1rem 3rem rgba(128, 128, 128, 0.461);
+    padding:50px;
+     
 }
 
-.info-widget {
-  
-    display: inline-block;
-    padding: 15px;
-  }
-
- 
- .bus-card-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
- .floating-btn{
-    margin:0px 20px;
-    background-color: rgb(223, 223, 223);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
- }
- .floating-btn:hover{
-    transform: scale(1.1);
-    background-color: rgb(218, 218, 218);
- }
- .buttonprofile
- {
-    width:700px;
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:140px;
-   
- }
- 
- #schedule-content
- {
-    background:#00a9ff2e;
- }
- 
- .btnstyle{
-  
-   display:flex;
-   justify-content:space-around;
-   margin-bottom:10px;
- }
- 
- .pwr-btn
- {
-    border-radius:50%;
- }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- .modal.left .modal-dialog {
-	position:fixed;
-	right: 0;
-	margin: auto;
-	
-	height: 100%;
-	-webkit-transform: translate3d(0%, 0, 0);
-	-ms-transform: translate3d(0%, 0, 0);
-	-o-transform: translate3d(0%, 0, 0);
-	transform: translate3d(0%, 0, 0);
-}
-
-.modal.left .modal-content {
-	height: 100%;
-	overflow-y: auto;
-}
-
-.modal.right .modal-body {
-	padding: 15px 15px 80px;
-}
-
-.modal.right.fade .modal-dialog {
-	left: -320px;
-	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
-	-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
-	-o-transition: opacity 0.3s linear, left 0.3s ease-out;
-	transition: opacity 0.3s linear, left 0.3s ease-out;
-}
-
-.modal.right.fade.show .modal-dialog {
-	right: 0;
-}
-
-/* ----- MODAL STYLE ----- */
-/* .modal-content {
-	border-radius: 0;
-	border: none;
-}
-
-.modal-header {
-	border-bottom-color: #eeeeee;
-	background-color: #fafafa;
-} */
-
-/* ----- v CAN BE DELETED v ----- */
-/* body {
-	background-color: #166f9b;
-}
-
-
-.btn-demo {
-	
-	background-color: #69b6d7;
-}
-
-.btn-demo:focus {
-	outline: 0;
-}
-.sideprofile
+.owner-header
 {
-    float:right;
-}
-.promodal
-{
-    width:200px!important;
-    background-color:#69b6d7;
-    border-radius:30px 30px 0px ;
-}  */
+    width:100%;
+    text-align:center;
+    background-color: #08088A;
+    color:white;
+    padding:25px;
 
-
-.own_container
-{
-   
-    height:auto;
-    padding:10px;
-    display:flex;
-    justify-content:center;
 }
 .shadow-lg
 {
     width:1000px;
+
 }
 
 .page-heading{
@@ -187,14 +24,13 @@ justify-content: center;
     justify-content: space-between;
     align-items: center;
 }
-table {
-    width: 100%;
-  }
+
     
 .TopBar{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width:100%;
 }
 .status
 {
@@ -212,12 +48,99 @@ table {
 .btnstyle
 {
     border:none;
+    margin-left:50px;
 }
-.name-header
-{
-    padding-top:20px;
-}
- .name-header1
+
+
+ .table-header
  {
-    padding-top:20px; 
+    color:#08088A;
+width:200px;
+ 
  }
+ 
+ .statusInput{
+    border: none;
+    background: none;
+    width:100px;
+ }
+ .statusInput:focus {
+    outline: none;
+    border-bottom: 2px solid #08088A;
+
+ }
+ .uploaddata
+ {
+    background:white;
+ }
+.statusEdit
+{
+    background:#08088A;
+}
+.editSign
+{
+    color:white;
+}
+.table-content1{
+    width: 100%;
+    overflow: scroll;
+    table-layout: fixed;
+}
+ 
+.text-uppercase{
+    background-image: linear-gradient(to left, #533483, indigo, #562B08, blue, #182747, red, blue);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(66, 151, 66);
+    border-radius: 50%;
+    display: inline-block;
+   
+  }
+  .statusContent
+
+{
+    display:flex;
+    align-items: center;
+}
+
+
+
+    @media (max-width:1200px)
+    {
+        .table-content{
+            width: 100%;
+            overflow: scroll;
+            table-layout: fixed;
+        }
+        .table-header
+      {
+       color:#08088A;
+     }
+ .coverage{
+    width: 90%;
+   word-wrap: break-word;
+}
+    }
+@media(max-width:500px)
+{
+    .ownerContainer
+    {
+        padding:20px;
+         
+    }
+}
+
+   
+
+
+
+
+
+
+ 

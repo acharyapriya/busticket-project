@@ -3,8 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Busschedule } from '../classes/busschedule';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
 
-
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';
 
 @Injectable({
   providedIn: 'root'
@@ -60,8 +63,24 @@ export class AdminserviceService {
   }
 
 
-  getcsvreport():Observable<any>
-  {
-    return this.http.get<any>(`${this.baseurl}/csvexport`)
+  
+
+ 
+
+  exportAsExcelFile0(StartDate:String,ReachDate:String):Observable<any>{
+    return this.http.get<any>(`${this.baseurl}/excelexport/StartDate=${StartDate}/ReachDate=${ReachDate}`)
   }
+
+
+   exportAsExcelFile1(excel: any, excelFileName: string): void {  
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(excel);
+    console.log(worksheet)  
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };  
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });  
+    this.saveAsExcelFile(excelBuffer, excelFileName);  
+  }  
+  private saveAsExcelFile(buffer: any, fileName: string): void {  
+     const data: Blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});  
+     FileSaver.saveAs(data, fileName+ '_export_.xlsx' );  
+  }  
 }

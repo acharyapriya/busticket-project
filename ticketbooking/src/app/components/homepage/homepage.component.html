@@ -2,9 +2,10 @@
    
     <div class="journeysection">
       <div class="profileheader dropdown" >
-        <div class="credential-btns mt-3" [class.d-none]="!if_userpresent" >
+        
+        <div class="credential-btns mt-1" [class.d-none]="!if_userpresent" >
           <a class="btn btn-primary mx-4" id="loginevent" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Login</a>
-          <a class="btn btn-secondary me-5" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Register</a>
+          <a class="btn btn-secondary me-2" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Register</a>
         </div>
         <div class="profavatar mt-3" [class.d-none]="if_userpresent">
           <img title="{{username}}" class="profiler-avatar me-3" [src]=profilerLogo/>
@@ -14,8 +15,10 @@
 
      
       </div>
+
+
       
-      <form (ngSubmit)="getbusschedule()">
+      <form class="journey" (ngSubmit)="getbusschedule()">
       <div class="journeybox shadow p-3 mb-5 bg-body rounded">
         <div class="journeyinp">
           <div class="form-floating mb-2 ">

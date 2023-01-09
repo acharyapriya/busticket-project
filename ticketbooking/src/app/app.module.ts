@@ -9,7 +9,7 @@ import { OwnerspannelComponent } from './components/ownerspannel/ownerspannel.co
 import { AdminpannelComponent } from './components/adminpannel/adminpannel.component';
 
 import {HttpClientModule} from "@angular/common/http";
-import { BusdetailComponent } from './components/busdetail/busdetail.component';
+
 import { SchedulebusdetailComponent } from './components/schedulebusdetail/schedulebusdetail.component';
 import { NavabarComponent } from './components/navabar/navabar.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -36,7 +36,7 @@ import { SuperadminregisterComponent } from './components/superadmin-crm/superad
     AppComponent,
     OwnerspannelComponent,
     AdminpannelComponent,
-    BusdetailComponent,
+  
     SchedulebusdetailComponent,
     NavabarComponent,
     RegisterComponent,
