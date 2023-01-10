@@ -64,7 +64,7 @@
           <mat-label>Admin Name</mat-label>
           <input matInput placeholder="Admin Name"   type="email"
           
-          name="adminname"
+          name="adminname" [(ngModel)]="adminlogin.adminname"
           
          >
         </mat-form-field>
@@ -72,7 +72,7 @@
           <mat-label>Admin Password</mat-label>
           <input matInput placeholder="Admin Password" type="password"
           
-          name="adminname"
+          name="adminpassword"  [(ngModel)]="adminlogin.adminpassword"
          
          >
         </mat-form-field>
@@ -84,7 +84,7 @@
 <mat-form-field class="example-full-width">
 
   <mat-label>Roll Base</mat-label>
-  <select matNativeControl required  placeholder="Admin Password">
+  <select   [(ngModel)]="adminlogin.rollbase" name="rollbase" matNativeControl required  placeholder="Admin Password"   >
     <option value="volvo">Roll Base</option>
     <option value="volvo">Admin-Rw</option>
     <option value="saab">Admin-R</option>
@@ -131,7 +131,7 @@
    
     <input matInput (keyup)="applyFilter($event)"  #input>
   </mat-form-field>
-  <div class="mat-elevation-z8 table-content">
+  <div class="mat-elevation-z8 ">
     <table class="table-content1" mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="SNO">
         <th mat-header-cell *matHeaderCellDef class="table-header">
@@ -180,7 +180,7 @@
           <i class="fa-solid fa-upload"></i>
         </button>
 
-        <button type="button" class="btn btn-danger pwr-btn mx-2">
+        <button type="button" class="btn btn-danger pwr-btn mx-2" (click)="adminDelete(element.adminid)">
           <i class="fa-solid fa-trash"></i>
         </button>
         </td>
@@ -194,7 +194,7 @@
     </table>
 
     <mat-paginator
-      [pageSizeOptions]="[5, 10, 20]"
+      [pageSizeOptions]="[5, 10, 20, 30]"
       showFirstLastButtons
       aria-label="Select page of periodic elements"
     >

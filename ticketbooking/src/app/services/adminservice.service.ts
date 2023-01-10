@@ -62,6 +62,11 @@ export class AdminserviceService {
     return this.http.put<any>(`${this.baseurl}/detailAdminupdate/${id}`,val)
   }
 
+  adminDelete(id:String):Observable<any>
+  {
+    return this.http.delete<any>(`${this.baseurl}/detailAdmindelete/${id}"`)
+  }
+
 
   
 

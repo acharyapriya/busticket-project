@@ -26,15 +26,15 @@ export class SuperadminregisterComponent implements OnInit {
   error!:string;
 bschedule=new Busschedule();
 
+
 displayedColumns : string[] = ['SNO', 'AdminName', 'RollBase','Option'];
-// @ViewChild(MatSort) sort!:MatSort;
-// datasource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);;
+
 dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
-// @ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
   constructor(private adminservice:AdminserviceService,private owenerservice:OwnersserviceService) { 
 
@@ -89,6 +89,13 @@ checkAdminId!:string;
     })
   }
 
+  adminDelete(adminid:String)
+  {
+    this.adminservice.adminDelete(adminid).subscribe((data)=>{
+      alert("deleted")
+    })
+  }
+
 
  exportAsXLSX1():void {  
     this.adminservice.exportAsExcelFile1(this.excel, 'sample'); 
@@ -101,8 +108,7 @@ checkAdminId!:string;
       this.adminservice.exportAsExcelFile1(data, 'sample'); 
       console.log(this.StartDate + "" + this.ReachDate)
       console.log(data)
-      //  this.excel=data; 
-     //  this.exportAsXLSX1(excel);
+      
     });
   }
 
