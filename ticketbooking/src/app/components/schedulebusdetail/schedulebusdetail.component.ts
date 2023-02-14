@@ -1,14 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit,Component, Input, OnInit, ViewChild } from '@angular/core';
-// import { OwnersserviceService } from 'src/app/services/ownersservice.service';
+
+import {Component, OnInit, ViewChild } from '@angular/core';
+
 
 
 import {MatPaginator} from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { OwnerdetailserviceService } from 'src/app/ownerdetailservice.service';
-import { OwnersserviceService } from 'src/app/services/ownersservice.service';
+
 @Component({
   selector: 'app-schedulebusdetail',
   templateUrl: './schedulebusdetail.component.html',
@@ -31,14 +32,14 @@ export class SchedulebusdetailComponent implements OnInit {
   adminPassword!: string;
   AdminName!: string;
  
-
   BusDetail:any=[]
   BusSchedules:any=[]
   available_status!: String;
   seatsBoolean!:boolean;
  
   colorStatus!:boolean;
-
+  route: any;
+  busName: any;
 
    constructor(private ownerservice:OwnerdetailserviceService) { }
 
@@ -54,10 +55,13 @@ export class SchedulebusdetailComponent implements OnInit {
       this.dataSource.sort = this.sort;
   
   })
+ 
+
+
+  
  }
  applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
-
   this.dataSource.filter = filterValue.trim().toLowerCase();
 }
 

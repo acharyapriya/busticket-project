@@ -26,15 +26,15 @@ active: string ="active"
 
   ngOnInit(): void {
     this.adminData=localStorage.getItem("admprev")
-    // console.log(this.adminid);
-    if(this.adminData.rollbase == "Admin-R"){
+
+    if(this.adminData.rollbase =="Admin-Rw"){
       this.BoolAdminData = true;
     }else{
-      this.BoolAdminData = false
+      this.BoolAdminData = false;
     }
     this.adminservice.getAllScheduledbs_detail().subscribe((data)=>{
       this.schedulecard=data;
-      console.log(data)
+       console.log(data)
     }
     
     )
@@ -59,9 +59,11 @@ active: string ="active"
   }
   scheduleID!:string;
   update_detail(id:String,val:any){
-    console.log(val)
     this.adminservice.update_schedule(id,val).subscribe((data)=>{
-      this.router_.navigate(["admincard"]).then(()=>{window.location.reload()})
+      this.router_.navigate(["admincard"]).then(()=>
+      {
+        window.location.reload()
+      })
      })
   }
 }

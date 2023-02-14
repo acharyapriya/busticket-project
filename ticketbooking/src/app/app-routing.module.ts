@@ -23,7 +23,7 @@ const routes: Routes = [
 
 {path:'register',component:RegisterComponent},
 {path:'admincard',component:SchedulebusCardComponent},
-{path:'ownercard',component:SchedulebusdetailComponent},
+{path:'ownercard/:adminname',component:SchedulebusdetailComponent},
 {path:'admin-owner-cre',component:AdminOwnercredentialComponent},
 {path:'superadmin-crm',component:SuperadminregisterComponent},
 

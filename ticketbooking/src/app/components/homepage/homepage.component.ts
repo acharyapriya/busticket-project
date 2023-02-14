@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { from } from 'rxjs';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { Login } from 'src/app/classes/loginmodel/login';
 import { AdminserviceService } from 'src/app/services/adminservice.service';
@@ -21,30 +22,31 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   password!:string
   data: any;
   busschedule=new Busschedule();
-  schedulelist:any=null;
+  schedulelist:any;
   today= new Date();
   buscoverage:any=[]
-  if_userpresent=true;
+ if_userpresent=true;
   from!:string 
   to!:string 
   date!:string 
   showmusiccard=true;
   profilerLogo:any;
+  user="dffd"
 
   constructor(private credential:UsercredentialsService,private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService, private router_:Router,private usercredential:UsercredentialsService) { }
+  
   ngAfterViewInit(): void {
    let htmlelement:HTMLElement = document.getElementById("loginevent") as HTMLElement;
 
     if(!localStorage.getItem("loginUser")){
-      //htmlelement.click()
+   
       setTimeout(()=>{
       console.log("hello")
         htmlelement.click()},10000
         )
     }
   }
- 
-  // @ViewChild("loginevent") modal!:ElementRef;
+
 
   ngOnInit(): void {
     
@@ -63,7 +65,6 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.Adminservice.getbusschedule(this.from,this.to,this.date).subscribe((data)=>{
        this.schedulelist=data;
-       console.log(this.schedulelist)
        this.showmusiccard=!this.showmusiccard;
     })
   }
@@ -81,7 +82,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   {
     if(data)
     {
-      this.savefromoption=[]
+     this.savefromoption=[]
       for (var i in this.buscoverage)
       {
         if(this.buscoverage[i]!=data)
@@ -93,10 +94,10 @@ export class HomepageComponent implements OnInit,AfterViewInit {
         
       }
     }
-    console.log(this.buscoverage);
-     
-    
+  
   }
+
+  
 
   reg=new Login()
   login(){
@@ -124,14 +125,16 @@ export class HomepageComponent implements OnInit,AfterViewInit {
 
   submitcredential()
   {
-    console.log(this.reg.password)
-   
-    this.usercredential.postusercredential(this.reg).subscribe((data)=>{
+   this.usercredential.postusercredential(this.reg).subscribe((data)=>{
       localStorage.setItem("loginUser",data.name)
       this.router_.navigate([""]).then(()=>{window.location.reload()});
     })
   }
 
+  alertfun()
+  {
+    alert("dd")
+  }
 
   
 

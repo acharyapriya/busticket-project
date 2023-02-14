@@ -54,7 +54,7 @@
                       </table>
                 </div>
                 <div class="btnstyle mb-3">
-                  <button type="button" *ngIf="BoolAdminData" [disabled]="val.scheduleID==sch_id" class="btn btn-primary pwr-btn mx-2" (click)="edit_enable(val.scheduleID)" > <i class="fa-solid fa-pen-to-square"></i></button>
+                  <button type="button"  [disabled]="val.scheduleID==sch_id" class="btn btn-primary pwr-btn mx-2" (click)="edit_enable(val.scheduleID)" > <i class="fa-solid fa-pen-to-square"></i></button>
 
                   <button type="button" (click)="update_detail(val.scheduleID,val)" *ngIf="val.scheduleID==sch_id " class="btn btn-success pwr-btn mx-2" ><i class="fa-solid fa-upload"></i></button>
               

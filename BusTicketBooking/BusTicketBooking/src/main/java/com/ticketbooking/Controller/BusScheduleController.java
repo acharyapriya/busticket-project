@@ -101,33 +101,7 @@ public class BusScheduleController {
 		
 		
 		
-	//////csv
-//	@GetMapping("/csvexport")
-//	public ResponseEntity<BusSchedule> csvExportCntrl(Writer writer,HttpServletResponse response )throws IOException
-//	{
-//		response.setContentType("text/csv");
-//		DateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-//		 
-//		String currentTime=dateformat.format(new Date());
-//		String headerkey="content-Disposition";
-//		String headervalue="attachement; filename=\"schedule.csv\"" + currentTime + ".csv";
-//	     response.setHeader(headerkey, headervalue);
-//	     List<BusSchedule> listUsers = busscheduleservice.csvExport();
-//	     ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-//	        String[] csvHeader = {"busName", "from", "to", "startingTime", "reachTime"};
-//	       
-//	        String[] nameMapping = {"busName", "from", "to", "startingTime", "reachTime"};
-//	        csvWriter.writeHeader(csvHeader);
-//	        try (CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT)) {
-//	        for(BusSchedule csvContent:listUsers)
-//	        {
-//	        	csvWriter.write(csvContent,nameMapping);
-//	        }
-//	        csvWriter.close();
-//	        
-//			return new ResponseEntity(busscheduleservice.csvExport(), HttpStatus.OK);
-//	}
-//		
+	
 
 @GetMapping("/excelexport/StartDate={StartDate}/ReachDate={ReachDate}")
 public List<BusSchedule>excelExportScheduleCntrl(@PathVariable("StartDate") String StartDate,@PathVariable("ReachDate") String ReachDate)

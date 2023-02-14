@@ -6,10 +6,10 @@
           <label for="bus">Bus name</label>
           <select class="form-select" (ngModelChange)="onbusname($event)" [(ngModel)]="bschedule.busId" name="busname"  aria-label="Default select example">
             <option selected>Open this select menu</option>
-            <option *ngFor="let value of allbusdetail" [value]="value.busId">{{value.busName}}</option>
+            <option *ngFor="let value of allbusdetail"  [value]="value.busId">{{value.busName}}</option>
           </select>
           </div>
-          
+         
           <div class="mb-1">
             <label for="bus">From</label>
             <select class="form-select" name="from" (ngModelChange)="changeOfOptions($event)"  [(ngModel)]="bschedule.from" aria-label="Default select example">
@@ -31,7 +31,7 @@
            
               <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">DISTANCE</label>
-            <input type="text" #distance="ngModel" name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" required placeholder="Distance">
+            <input type="text" #distance="ngModel"  name="distance" [(ngModel)]="bschedule.distance" class="form-control" id="exampleFormControlInput1" required placeholder="Distance">
             <div *ngIf="distance.errors?.['required']">
               <p class="error-msg">this field is required</p>
             </div>

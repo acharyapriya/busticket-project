@@ -28,6 +28,8 @@ import { AdminOwnercredentialComponent } from './components/admin-ownercredentia
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { SuperadminregisterComponent } from './components/superadmin-crm/superadminregister.component';
+import { ButtonComponent } from './components/button/button.component';
+import { OwnersserviceService } from './services/ownersservice.service';
 
 
 
@@ -48,6 +50,7 @@ import { SuperadminregisterComponent } from './components/superadmin-crm/superad
     SchedulebusCardComponent,
     AdminOwnercredentialComponent,
     SuperadminregisterComponent,
+    ButtonComponent,
  
 ],
   imports: [
@@ -57,6 +60,7 @@ import { SuperadminregisterComponent } from './components/superadmin-crm/superad
     FormsModule,HttpClientModule,NgxQRCodeModule,NgxPasswordStrengthMeterModule, NoopAnimationsModule, MaterialModule
   ],
   providers: [DatePipe],
+
   bootstrap: [AppComponent],
   // schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

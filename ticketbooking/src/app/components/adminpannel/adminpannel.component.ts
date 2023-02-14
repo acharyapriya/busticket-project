@@ -36,23 +36,9 @@ export class AdminpannelComponent implements OnInit {
   error!:string;
   Fielddate!:any
   current_date!:any
+  dd="gfg"
 
 
-
-
-  data: any = [{
-    eid: 'e101',
-    ename: 'ravi',
-    esal: 1000
-    },{
-    eid: 'e102',
-    ename: 'ram',
-    esal: 2000
-    },{
-    eid: 'e103',
-    ename: 'rajesh',
-    esal: 3000
-    }];
 
    
 
@@ -87,10 +73,12 @@ export class AdminpannelComponent implements OnInit {
   onbusname(data: any) {
     this.ownerservice.getbusdetailbyId(data).subscribe((data) => {
       this.specificBusdetail = data.coverage;
+    
     });
   }
 
   changeOfOptions(data: any) {
+    console.log(data)
     if (data) {
       this.ToOptions = [];
       for (var i in this.specificBusdetail) {

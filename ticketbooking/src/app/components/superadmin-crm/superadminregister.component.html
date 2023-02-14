@@ -1,10 +1,5 @@
-<div class=" resource">
-<!-- <nav class="navbar navbar-dark ">
- <h1 class="text-center">Resource Managment</h1>
-</nav> -->
-<div class="container">
- 
-<div class="resource-header">
+<div class=" resource"> 
+<!-- <div class="resource-header"> -->
   <a
     class="btn resource-add-btn "
     data-bs-toggle="offcanvas"
@@ -39,15 +34,13 @@
       </div>
     </form>
   </div>
-</div>
-
-  
-
-  <div
+<!-- </div> -->
+<div
     class="offcanvas offcanvas-start"
     tabindex="-1"
     id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel"
+    style="width: 300px;"
   >
     <div class="offcanvas-header">
       
@@ -58,39 +51,43 @@
         aria-label="Close"
       ></button>
     </div>
-    <div class="offcanvas-body">
+    <div >
       <form class="adminForm example-form " (ngSubmit)="adminreg()">
-        <mat-form-field class="example-full-width">
+        <mat-form-field >
           <mat-label>Admin Name</mat-label>
           <input matInput placeholder="Admin Name"   type="email"
           
-          name="adminname" [(ngModel)]="adminlogin.adminname"
+          name="adminname" [(ngModel)]="adminlogin.adminname"  matNativeControl required 
+          placeholder="Admin Name"
           
          >
         </mat-form-field>
+        
+      
         <mat-form-field class="example-full-width">
+
           <mat-label>Admin Password</mat-label>
-          <input matInput placeholder="Admin Password" type="password"
+          <input  placeholder="Admin Password" type="password"
           
-          name="adminpassword"  [(ngModel)]="adminlogin.adminpassword"
-         
+          name="adminpassword"  [(ngModel)]="adminlogin.adminpassword"  matNativeControl required 
+          placeholder="Admin Password"
          >
         </mat-form-field>
-      
-      
         
         
 
 <mat-form-field class="example-full-width">
 
   <mat-label>Roll Base</mat-label>
-  <select   [(ngModel)]="adminlogin.rollbase" name="rollbase" matNativeControl required  placeholder="Admin Password"   >
-    <option value="volvo">Roll Base</option>
-    <option value="volvo">Admin-Rw</option>
-    <option value="saab">Admin-R</option>
+  <select   [(ngModel)]="adminlogin.rollbase" name="rollbase" matNativeControl required  placeholder="Roll"   >
+    <option >Roll Base</option>
+    <option value="Admin-Rw">Admin-Rw</option>
+    <option value="Admin-R">Admin-R</option>
     
   </select>
+
 </mat-form-field>
+<br>
 
         <button type="submit" class="btn addResourceBtn">ADD</button>
       </form>
@@ -131,7 +128,8 @@
    
     <input matInput (keyup)="applyFilter($event)"  #input>
   </mat-form-field>
-  <div class="mat-elevation-z8 ">
+
+  <div class="mat-elevation-z8  table-content">
     <table class="table-content1" mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="SNO">
         <th mat-header-cell *matHeaderCellDef class="table-header">
@@ -191,16 +189,18 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
      
+
+      
     </table>
 
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 20, 30]"
-      showFirstLastButtons
-      aria-label="Select page of periodic elements"
-    >
-    </mat-paginator>
+    
   </div>
-</div>
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 20, 30]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
 
 
 </div>

@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Adminlogin } from 'src/app/classes/adminlogin';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { Exportdata } from 'src/app/classes/exportdata';
 import { AdminserviceService } from 'src/app/services/adminservice.service';
 import { OwnersserviceService } from 'src/app/services/ownersservice.service';
-import { Observable } from 'rxjs'; 
+
 import { MatTableDataSource } from '@angular/material/table';
 
 import { MatPaginator } from '@angular/material/paginator';

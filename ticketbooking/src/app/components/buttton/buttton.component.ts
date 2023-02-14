@@ -15,6 +15,7 @@ export class ButttonComponent implements OnInit {
   }
   madeAclick(){
     this.newEvent.emit()
+   
   }
 
 }

@@ -1,39 +1,4 @@
-/* .card-block {
-    min-height: 220px;
-    text-align:center;
-    margin:auto;
-    padding:20px 0px;
- }
- .container-fluid
- {
-    overflow-x: scroll;
-   overflow-y: hidden;
-   width:900px;
-  
- 
- }
- .card-body-sec div {
 
-    font-size: 15px;
-
-  display: flex;
-
-  align-items: center;
-
-}
- .businfo .btn
- {
-    margin-right:20px;
- }
- .bustype
- {
-    margin-left:40px;
-    width:200px;
-    padding:10px 5px;;
-    background:rgba(0, 0, 255, 0.674);
-    border-radius:20px 0px;
-    text-align:center;
- } */
  .card-body-sec div {
     font-size: 15px;
 display: flex;
@@ -61,9 +26,8 @@ justify-content: center;
 }
 
 .info-widget {
-    width: 35%;
+    width: 33%;
     display: inline-block;
-    padding: 15px;
   }
 
   .middle {
@@ -102,53 +66,26 @@ justify-content: center;
     margin-bottom:140px;
    
  }
- /* .card-body-sec div {
-
-    font-size: 15px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-}
-
-.seat-count{
-
-    display: inline;
-
-}
-
-.slash{
-
-    font-size: 25px;
-
-}
-
-.avail-seat{
-
-    color: rgb(0, 148, 0);
-
-}
-
-.booking-btn{
-
-    position: relative;
-
-   width: 100%;
-
-   display: flex;
-
-   justify-content: center;
-
-}
-
-.bus-card:hover{
-
-    transform: scale(1.005);
-
-    box-shadow: 0 1rem 3rem rgba(128, 128, 128, 0.461);
-
-} */
  
+@media(max-width:1190px)
+{
+    .info-widget {
+        width: 57%;
+        display: inline-block;
+      }
+      .bus-card{
+        width: 24rem;
+      }
+      
+}
+@media(max-width:968px)
+{
+    .info-widget {
+        width: 100%;
+        display: inline-block;
+        margin-left:80px;
+      }
+      .bus-card{
+        width: 34rem;
+      }
+    }

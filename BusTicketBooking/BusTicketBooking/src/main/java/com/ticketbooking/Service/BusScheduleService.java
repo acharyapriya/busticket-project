@@ -100,13 +100,6 @@ public class BusScheduleService {
    public BusSchedule updateschedule(BusSchedule busschedule,String scheduleID)
    {
 	   BusSchedule scheduledetails=busschedulerepo.findById(scheduleID).get();
-//	   scheduledetails.setDepartureArea(busschedule.getDepartureArea());
-//	   scheduledetails.setFrom(busschedule.getFrom());
-//	   scheduledetails.setTo(busschedule.getTo());
-//	   scheduledetails.setNoOfSeats(busschedule.getNoOfSeats());
-//	   scheduledetails.setStartingTime(busschedule.getStartingTime());
-//	   scheduledetails.setReachTime(busschedule.getReachTime());
-//	   scheduledetails.setFairPerSeat(busschedule.getFairPerSeat());
 	   scheduledetails.setAvailable_status(busschedule.getAvailable_status());
 	   return busschedulerepo.save(scheduledetails);
  }
@@ -186,21 +179,6 @@ public class BusScheduleService {
 	  
   }
   
-  ////////csvexport
-  
-//  public List<BusSchedule>csvExport()
-//  {
-//	  
-////	  List<BusSchedule> bschedule=busschedulerepo.getcsvreport();
-//	  
-////	  System.out.println(startingTime);
-////	  System.out.println(reachTime);
-////	return bschedule;
-//	
-//	  
-//	  return busschedulerepo.findAll();
-//  }
-//  
   
   
   

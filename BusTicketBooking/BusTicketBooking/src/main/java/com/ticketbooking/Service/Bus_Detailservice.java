@@ -10,8 +10,10 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
+import com.ticketbooking.Entity.Admincrediential;
 import com.ticketbooking.Entity.BusSchedule;
 import com.ticketbooking.Entity.Bus_Detail;
+import com.ticketbooking.Repository.AdmincredientialRepo;
 import com.ticketbooking.Repository.BusScheduleRepo;
 import com.ticketbooking.Repository.Bus_Detailrepository;
 import com.ticketbooking.Repository.LoginRepo;
@@ -33,14 +35,24 @@ public class Bus_Detailservice {
   
   @Autowired
   private TicketBookingRepo bookingrepo;
+  
+  @Autowired
+  private AdmincredientialRepo adminRepo;
 
   
   public Bus_Detail busdetail(Bus_Detail bus_detail)
   {
+	  
 	  bus_detail.setBusId(UUID.randomUUID().toString());
 	  bus_detail.setCoverage(bus_detail.getCoverage().toLowerCase());
-	 
-	  
+	  bus_detail.setBusName(bus_detail.getBusName());
+	  Admincrediential adminCredentials = new Admincrediential();
+	  adminCredentials.setAdminid(bus_detail.getBusId());
+	  adminCredentials.setAdminname(bus_detail.getBusName().replace(" ", ""));
+	   String hashMapedBusNo = BCrypt.hashpw(bus_detail.getBusNo().replace(" ", ""), BCrypt.gensalt());
+	  adminCredentials.setAdminpassword(hashMapedBusNo);
+	  adminCredentials.setRollbase("Owner");
+	  adminRepo.save(adminCredentials);
 	  return bus_detailrepository.save(bus_detail);
   }
   
