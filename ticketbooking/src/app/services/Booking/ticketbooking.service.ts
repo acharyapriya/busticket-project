@@ -14,4 +14,9 @@ BASE_URL = 'http://localhost:8080'
   {
     return this.http.post<any>(`${this.BASE_URL}/tickets`,bookingdetail)
   }
+
+  getticketDetails(userDetail:any):Observable<any>
+  {
+    return this.http.get<any>(`${this.BASE_URL}/ticketbyid/${userDetail}`)
+  }
 }

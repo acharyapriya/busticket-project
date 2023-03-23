@@ -10,13 +10,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { SchedulebusCardComponent } from './components/schedulebus-card/schedulebus-card.component';
 import { SchedulebusdetailComponent } from './components/schedulebusdetail/schedulebusdetail.component';
 import { SuperadminregisterComponent } from './components/superadmin-crm/superadminregister.component';
+import { TickseatselectionComponent } from './components/tickseatselection/tickseatselection.component';
 
 
 
 const routes: Routes = [
   
+
   {path:'',component:HomepageComponent},
-  
+  {path:'seatchart',component:TickseatselectionComponent},  
 {path:'register' ,component:RegisterComponent},
 {path: 'ownerpanel',component:OwnerspannelComponent},
 {path:'adminpanel',component:AdminpannelComponent},

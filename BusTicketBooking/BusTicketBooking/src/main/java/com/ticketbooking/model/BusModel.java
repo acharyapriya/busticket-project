@@ -19,5 +19,6 @@ public class BusModel {
 	  private String  busModel;
 	  private int noOfSeats;
 	  private String mode;
+	  private String seatconfig;
 	  private String[] coverage;
 }

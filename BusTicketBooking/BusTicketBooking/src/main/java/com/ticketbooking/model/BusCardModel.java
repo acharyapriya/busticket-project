@@ -15,6 +15,7 @@ import lombok.Setter;
 public class BusCardModel {
 	
 	private String scheduleID;
+	private String busId;
 	private String busName;
 	private String from;
 	private String to;
@@ -25,5 +26,6 @@ public class BusCardModel {
 	private LocalDateTime startingTime;
 	private LocalDateTime reachTime;
 	private int fairPerSeat;
+	private String seatconfig;
 	private String mode;
 }

@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
 import { Busschedule } from 'src/app/classes/busschedule';
 import { Login } from 'src/app/classes/loginmodel/login';
 import { AdminserviceService } from 'src/app/services/adminservice.service';
@@ -31,7 +30,7 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   date!:string 
   showmusiccard=true;
   profilerLogo:any;
-  user="dffd"
+
 
   constructor(private credential:UsercredentialsService,private Adminservice:AdminserviceService,private Ownerservice:OwnersserviceService, private router_:Router,private usercredential:UsercredentialsService) { }
   
@@ -65,6 +64,8 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     
     this.Adminservice.getbusschedule(this.from,this.to,this.date).subscribe((data)=>{
        this.schedulelist=data;
+       console.log(this.schedulelist)
+       
        this.showmusiccard=!this.showmusiccard;
     })
   }
@@ -97,7 +98,6 @@ export class HomepageComponent implements OnInit,AfterViewInit {
   
   }
 
-  
 
   reg=new Login()
   login(){
@@ -105,9 +105,17 @@ export class HomepageComponent implements OnInit,AfterViewInit {
     this.credential.loginUser(this.username,this.password).subscribe({
       next:(data)=>{
         if(data){
+          localStorage.setItem("datas",data.userid)
         this.router_.navigate([""]).then(()=>{window.location.reload()})
         localStorage.setItem("loginUser",data.name)
-        console.log(data.username)
+   
+
+       
+        // console.log(data)
+      //localStorage.setItem("logindata",data.name)
+     
+
+       // console.log(data.username)
       }},
       error:(err)=>{
         if(err){

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketbooking.Entity.TicketBooking;
 import com.ticketbooking.Service.TicketBookingService;
+import com.ticketbooking.model.TicketBook;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -34,18 +35,18 @@ public class TicketBookingController {
   
    @GetMapping("/ticketbyid/{id}")
    
-  public  TicketBooking bookingbyid(@PathVariable("id")String busId) 
+  public  List <String> bookingbyid(@PathVariable("id")String userName) 
   {
-	return ticketbookingservice.bookingbyid(busId);
+	return ticketbookingservice.bookingbyid(userName);
   }
    
    @DeleteMapping("/deletebooking/{id}")
    
-	   public String deletebooking (@PathVariable("id")String busId) 
+	   public String deletebooking (@PathVariable("id")String bookingId) 
 	   {
-	   ticketbookingservice.deletebooking(busId);
+	   ticketbookingservice.deletebooking(bookingId);
 	  
-       return"deleted succesfull";
+       return"deleted succesfully";
 	   }
 	  
    

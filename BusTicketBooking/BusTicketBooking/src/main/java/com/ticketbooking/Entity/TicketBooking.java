@@ -24,6 +24,7 @@ public class TicketBooking {
   private String userName;
   private LocalDateTime bookingDateTime;
   private int noOfBookingSeats;
+  private String bookingLabel;
   private String bookingStatus;
   private int fare;
  

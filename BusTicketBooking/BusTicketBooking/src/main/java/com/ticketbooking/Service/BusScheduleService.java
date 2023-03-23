@@ -95,6 +95,7 @@ public class BusScheduleService {
 	   cardModel.setReachTime(bsschedule.getReachTime());
 	   cardModel.setStartingTime(bsschedule.getStartingTime());
 	   cardModel.setMode(bsdetail.getBusModel());
+	   cardModel.setSeatconfig(bsdetail.getSeatconfig());
 	   return cardModel;
    }
    public BusSchedule updateschedule(BusSchedule busschedule,String scheduleID)
@@ -118,8 +119,10 @@ public class BusScheduleService {
 		  
 		   BusCardModel cardModel = new BusCardModel();
 		   cardModel.setScheduleID(ScheduledBus.getScheduleID());
-		  
+		   cardModel.setBusId(ScheduledBus.getBusId());
+		   
 		   cardModel.setBookedSeats(ScheduledBus.getBookedSeats());
+		   
 		   cardModel.setBusName(ScheduledBus.getBusName());
 		   cardModel.setDepartureArea(ScheduledBus.getDepartureArea());
 		   cardModel.setDistance(ScheduledBus.getDistance());
@@ -130,6 +133,7 @@ public class BusScheduleService {
 		   cardModel.setReachTime(ScheduledBus.getReachTime());
 		   cardModel.setStartingTime(ScheduledBus.getStartingTime());
 		   cardModel.setMode(bsdetail.getBusModel());
+		   cardModel.setSeatconfig(bsdetail.getSeatconfig());
 		   BusCardModel.add(cardModel);
 		   
 	   }

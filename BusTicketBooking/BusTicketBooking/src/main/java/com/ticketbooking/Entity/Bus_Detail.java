@@ -26,6 +26,7 @@ public class Bus_Detail {
   private String mode;
   private String coverage;
   private String seatingschema;
+  private String seatconfig;
   
   
 

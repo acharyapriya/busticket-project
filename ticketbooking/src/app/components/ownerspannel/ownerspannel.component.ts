@@ -12,6 +12,8 @@ export class OwnerspannelComponent implements OnInit {
 
   constructor(private ownerService:OwnersserviceService,private _router:Router) { }
   busdetail = new Busdetail()
+
+  userName: string = "jbond";
   ngOnInit(): void {
     const string="10LS5RS"
   }
@@ -23,9 +25,10 @@ export class OwnerspannelComponent implements OnInit {
    
     this.ownerService.PostBusDetail(this.busdetail).subscribe((data)=>{
       this._router.navigate(["/ownerpanel"]).then(()=>{
+        console.log(data)
         window.location.reload()
       }    )
-      console.log(data)
+     
     }
      
     )

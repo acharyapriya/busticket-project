@@ -71,7 +71,7 @@ public class Bus_Detailservice {
 	  busmodel.setBusModel(bus_detail.getBusModel());
 	  busmodel.setBusName(bus_detail.getBusName());
 	  busmodel.setBusNo(bus_detail.getBusNo());
-	   
+	  busmodel.setSeatconfig(bus_detail.getSeatconfig());
 	  busmodel.setMode(bus_detail.getMode());
 	  busmodel.setNoOfSeats(bus_detail.getNoOfSeats());
 	  

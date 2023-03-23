@@ -30,6 +30,7 @@ import { MaterialModule } from './material/material.module';
 import { SuperadminregisterComponent } from './components/superadmin-crm/superadminregister.component';
 import { ButtonComponent } from './components/button/button.component';
 import { OwnersserviceService } from './services/ownersservice.service';
+import { TickseatselectionComponent } from './components/tickseatselection/tickseatselection.component';
 
 
 
@@ -51,6 +52,7 @@ import { OwnersserviceService } from './services/ownersservice.service';
     AdminOwnercredentialComponent,
     SuperadminregisterComponent,
     ButtonComponent,
+    TickseatselectionComponent,
  
 ],
   imports: [
